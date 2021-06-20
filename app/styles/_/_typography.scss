@@ -1,0 +1,40 @@
+@import "fonts";
+@import "variables";
+@import "mixins";
+
+h1 {
+  @include respond($mobile) {
+    font-size: 60px;
+    line-height: 0.833;
+  }
+  @include respond(0, $mobile) {
+    font-size: 36px;
+    line-height: 1;
+  }
+  color: $dark;
+  font-family: $lato-font;
+  margin: 0;
+
+  &.l-line {
+    span {
+      position: relative;
+      display: inline-block;
+      padding-bottom: 24px;
+
+      @include respond($mobile) {
+        letter-spacing: -1px;
+      }
+
+      &:after {
+        position: absolute;
+        content: '';
+        height: 1px;
+        background: $brown-light;
+        right: 0;
+        left: -200%;
+        bottom: 0;
+        display: block;
+      }
+    }
+  }
+}

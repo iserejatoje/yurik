@@ -1,0 +1,48 @@
+{
+  "name": "yurik",
+  "version": "1.0.0",
+  "description": "Юридическая инициатива",
+  "scripts": {
+    "start": "gulp",
+    "build": "gulp build"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/iserejatoje/yurik.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/iserejatoje/yurik/issues"
+  },
+  "homepage": "https://github.com/iserejatoje/yurik#readme",
+  "devDependencies": {
+    "@babel/core": "^7.14.6",
+    "@babel/preset-env": "^7.14.5",
+    "babel-loader": "^8.2.2",
+    "babel-plugin-module-resolver": "^4.1.0",
+    "babel-plugin-root-import": "^6.6.0",
+    "browser-sync": "^2.26.14",
+    "browsersync-ssi": "^0.2.4",
+    "del": "^6.0.0",
+    "gulp": "^4.0.2",
+    "gulp-autoprefixer": "^8.0.0",
+    "gulp-clean-css": "^4.3.0",
+    "gulp-imagemin": "^7.1.0",
+    "gulp-newer": "^1.4.0",
+    "gulp-noop": "^1.0.1",
+    "gulp-rename": "^2.0.0",
+    "gulp-rsync": "0.0.9",
+    "gulp-sass": "^4.1.0",
+    "gulp-sass-glob": "^1.1.0",
+    "gulp-svg-sprite": "^1.5.0",
+    "webpack-stream": "^6.1.2"
+  },
+  "dependencies": {
+    "imask": "^6.0.7",
+    "jquery": "^3.6.0",
+    "swiper": "^6.7.0",
+    "tiny-slider": "^2.9.3"
+  }
+}
