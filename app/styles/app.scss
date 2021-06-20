@@ -8,6 +8,12 @@
   box-sizing: border-box;
 }
 
+a,
+button,
+input {
+  -webkit-tap-highlight-color: transparent;
+}
+
 body,
 html {
   height: 100%;
@@ -16,12 +22,19 @@ html {
 #app {
   background: $white;
   overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  min-height: 100%;
 }
 
 body {
   background: $white;
   font-family: $default-font;
   font-weight: normal;
+}
+
+.app-inner {
+  flex: 1 0 auto;
 }
 
 .skip-link {
@@ -598,4 +611,8 @@ nav {
   text-decoration: none;
   border-bottom: 1px solid;
   line-height: 1.2;
+}
+
+.container-footer {
+  flex: 0 0 auto;
 }
