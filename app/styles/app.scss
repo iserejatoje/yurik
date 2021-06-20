@@ -142,8 +142,8 @@ footer {
 
   .app-panel_block {
     @include respond($mobile) {
-      padding-top: 68px;
-      padding-bottom: 25px;
+      padding-top: 58px;
+      padding-bottom: 15px;
     }
     @include respond(0, $mobile) {
       padding-top: 30px;
@@ -231,6 +231,7 @@ header {
 
 .phone-icon {
   fill: $brown;
+  margin-right: 8px;
 }
 
 .phone-link {
