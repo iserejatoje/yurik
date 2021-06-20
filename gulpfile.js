@@ -94,6 +94,7 @@ function buildcopy() {
         [
             "{app/js,app/css}/*.min.*",
             "app/images/**/*.*",
+            "app/README.md",
             "app/fonts/*.*",
             "app/sprites/*.*",
             "!app/images/src/**/*",
