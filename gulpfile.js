@@ -94,27 +94,29 @@ function buildcopy() {
         [
             "{app/js,app/css}/*.min.*",
             "app/images/**/*.*",
+            "app/fonts/*.*",
+            "app/sprites/*.*",
             "!app/images/src/**/*",
             "app/fonts/**/*",
         ],
         {base: "app/"}
-    ).pipe(dest("dist"));
+    ).pipe(dest("docs"));
 }
 
 async function buildhtml() {
-    let includes = new ssi("app/", "dist/", "/**/*.html");
+    let includes = new ssi("app/", "docs/", "/**/*.html");
     includes.compile();
-    del("dist/parts", {force: true});
+    del("docs/parts", {force: true});
 }
 
-function cleandist() {
-    return del("dist/**/*", {force: true});
+function cleandocs() {
+    return del("docs/**/*", {force: true});
 }
 
 function deploy() {
-    return src("dist/").pipe(
+    return src("docs/").pipe(
         rsync({
-            root: "dist/",
+            root: "docs/",
             hostname: "username@yousite.com",
             destination: "yousite/public_html/",
             // clean: true, // Mirror copy with file deletion
@@ -153,7 +155,7 @@ exports.deploy = deploy;
 exports.sprites = sprites;
 exports.assets = series(scripts, styles);
 exports.build = series(
-    cleandist,
+    cleandocs,
     scripts,
     styles,
     buildcopy,
