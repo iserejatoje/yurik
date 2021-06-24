@@ -5,6 +5,5 @@
 
 <br>
 Made with ❤️ by Atom Web Studio<br>
-Music: Limp Bizkit<br>
 
-#### 20 June, 2021
+#### 24 June, 2021

@@ -2,7 +2,38 @@
 @import "variables";
 @import "mixins";
 
-h1 {
+.heading-line {
+
+  br {
+    @include respond(0, $mobile) {
+      display: none;
+    }
+  }
+
+  span {
+    position: relative;
+    display: inline-block;
+
+    &:after {
+      position: absolute;
+      content: '';
+      height: 1px;
+      background: $brown-light;
+      right: 0;
+      left: -9999px;
+      bottom: 0;
+      display: block;
+    }
+  }
+}
+
+h1,
+h2 {
+  font-family: $lato-font;
+  margin: 0;
+}
+
+.fs-60 {
   @include respond($mobile) {
     font-size: 60px;
     line-height: 0.833;
@@ -11,30 +42,24 @@ h1 {
     font-size: 36px;
     line-height: 1;
   }
-  color: $dark;
-  font-family: $lato-font;
-  margin: 0;
+  span {
+    padding-bottom: 24px;
+  }
+}
 
-  &.l-line {
-    span {
-      position: relative;
-      display: inline-block;
-      padding-bottom: 24px;
-
-      @include respond($mobile) {
-        letter-spacing: -1px;
-      }
-
-      &:after {
-        position: absolute;
-        content: '';
-        height: 1px;
-        background: $brown-light;
-        right: 0;
-        left: -200%;
-        bottom: 0;
-        display: block;
-      }
+.fs-40 {
+  line-height: 1.25;
+  @include respond($mobile) {
+    font-size: 40px;
+  }
+  @include respond(0, $mobile) {
+    font-size: 30px;
+  }
+  span {
+    color: $brown-light;
+    padding-bottom: 10px;
+    @include respond($mobile) {
+      display: block;
     }
   }
 }

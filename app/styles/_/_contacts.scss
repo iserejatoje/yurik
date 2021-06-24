@@ -1,0 +1,249 @@
+@import "variables";
+@import "mixins";
+
+section.contacts {
+  @include respond($mobile) {
+    padding-top: 78px;
+  }
+  @include respond(0, $mobile) {
+    padding-top: 30px;
+  }
+
+  .container-heading {
+    @include respond($mobile) {
+      padding: 38px 38px 0 38px;
+    }
+    @include respond(0, $mobile) {
+      padding-left: 15px;
+      padding-right: 15px;
+    }
+  }
+
+  .contact-container {
+    max-width: 944px;
+    display: flex;
+    margin: 0 auto;
+    width: 100%;
+  }
+
+  .contacts-list {
+    margin-top: 44px;
+
+    @include respond($mobile) {
+      display: flex;
+    }
+
+    .column:nth-child(1) {
+
+      @include respond(0, $mobile) {
+        margin-bottom: 20px;
+      }
+
+      @include respond($mobile) {
+        max-width: 310px;
+        width: 100%;
+        padding-right: 25px;
+      }
+
+      li {
+        padding-left: 24px;
+        letter-spacing: 1px;
+      }
+
+      svg {
+        position: absolute;
+        left: 0;
+
+        @include respond($mobile) {
+          top: 13px;
+        }
+        @include respond(0, $mobile) {
+          top: 9px;
+        }
+      }
+
+      li {
+        line-height: 1.8;
+      }
+    }
+
+    .column:nth-child(2) {
+      @include respond($mobile) {
+        max-width: 330px;
+        width: 100%;
+      }
+
+      li {
+        align-items: center;
+        display: flex;
+        letter-spacing: 1px;
+      }
+
+      svg {
+        transform: translateY(6px);
+      }
+    }
+
+  }
+
+  .transform-block {
+    background: $white;
+    overflow: hidden;
+    position: relative;
+    z-index: 1000;
+    flex-direction: column;
+
+    @include respond($mobile) {
+      padding: 10px 38px 50px 38px;
+      transform: translateY(95px);
+    }
+    @include respond(0, $mobile) {
+      padding: 25px 15px;
+    }
+
+    .title {
+      @include respond($mobile) {
+        font-size: 24px;
+      }
+      @include respond(0, $mobile) {
+        font-size: 21px;
+      }
+      font-family: $lato-font;
+      font-weight: bold;
+      line-height: 1.458;
+
+      span {
+        padding-bottom: 6px;
+      }
+    }
+
+    ul {
+      margin: 0;
+      padding: 0;
+    }
+
+    .email-link {
+      transform: translateY(5px);
+      display: inline-block;
+    }
+
+    .phone-link {
+      font-size: 21px;
+      color: $dark;
+      font-weight: 800;
+      text-decoration: none;
+      letter-spacing: 1px;
+      transform: translateY(5px);
+      display: inline-block;
+    }
+
+    li {
+      font-weight: 300;
+      position: relative;
+      list-style: none;
+
+      @include respond($mobile) {
+        font-size: 21px;
+      }
+
+      &:not(:last-child) {
+        margin-bottom: 26px;
+      }
+
+      svg {
+        margin-right: 15px;
+        fill: $brown;
+        min-width: 10px;
+      }
+
+    }
+
+    .buttons {
+      @include respond($mobile) {
+        transform: translateY(-14px);
+      }
+      @include respond(0, $mobile) {
+        margin-top: 40px;
+        display: flex;
+        flex-wrap: wrap;
+      }
+
+      button:first-child {
+        margin-bottom: 20px;
+
+        @include respond(400px, $mobile) {
+          margin-right: 25px;
+        }
+      }
+    }
+
+    .information {
+      @include respond($mobile) {
+        display: flex;
+      }
+
+      @include respond($mobile) {
+        margin-top: 120px;
+      }
+
+      @include respond(0, $mobile) {
+        margin-top: 50px;
+      }
+
+      .column {
+        width: 100%;
+
+        @include respond(0, $mobile) {
+          margin-bottom: 25px;
+        }
+      }
+
+      .column:nth-child(1) {
+        @include respond($mobile) {
+          max-width: 252px;
+          border-right: 1px solid transparentize($brown, .8);
+        }
+      }
+
+      .column:nth-child(2) {
+        @include respond($mobile) {
+          padding-left: 58px;
+          max-width: 304px;
+        }
+      }
+
+      .label {
+        display: inline-flex;
+        font-size: 14px;
+        text-transform: uppercase;
+        font-weight: 300;
+        align-items: center;
+      }
+
+      .value {
+        letter-spacing: 1px;
+        padding-left: 24px;
+        margin-top: 8px;
+        line-height: 1.6;
+      }
+    }
+  }
+
+  #map {
+    background: transparentize($brown, .95);
+    @include respond(0, $mobile) {
+      min-height: 300px;
+    }
+    @include respond($mobile) {
+      min-height: 820px;
+    }
+  }
+
+  .feedback {
+    background: linear-gradient(58deg, #2f453e 20%, #0d192b 84%);
+    min-height: 608px;
+    padding-top: 40px;
+    padding-bottom: 50px;
+  }
+
+}

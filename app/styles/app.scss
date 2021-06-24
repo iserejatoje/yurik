@@ -177,6 +177,19 @@ footer {
   }
 }
 
+header,
+footer {
+  .phone-link {
+    font-size: 20px;
+    color: $brown-light;
+    font-weight: 800;
+    line-height: 0.9;
+    letter-spacing: 1.5px;
+    display: flex;
+    align-items: center;
+  }
+}
+
 header {
   display: flex;
   align-items: center;
@@ -186,9 +199,11 @@ header {
   nav {
     a {
       padding: 14px 0 13px 0;
+
       &:before {
         background: $dark;
       }
+
       &:before {
         opacity: 0;
         content: '';
@@ -228,12 +243,6 @@ header {
     }
   }
 
-  @include respond($mobile) {
-    padding-bottom: 135px;
-  }
-  @include respond(0, $mobile) {
-    padding-bottom: 50px;
-  }
 }
 
 .button-blank {
@@ -245,16 +254,6 @@ header {
 .phone-icon {
   fill: $brown;
   margin-right: 8px;
-}
-
-.phone-link {
-  font-size: 20px;
-  color: $brown-light;
-  font-weight: 800;
-  line-height: 0.9;
-  letter-spacing: 1.5px;
-  display: flex;
-  align-items: center;
 }
 
 .select {
@@ -474,6 +473,7 @@ nav {
     transition: fill $transition-delay ease;
   }
 
+  &:focus,
   &:hover {
     background: $brown;
 
@@ -533,6 +533,7 @@ nav {
     justify-content: center;
     transition: background $transition-delay ease;
 
+    &:focus,
     &:hover {
       background: $brown;
 
@@ -615,4 +616,73 @@ nav {
 
 .container-footer {
   flex: 0 0 auto;
+}
+
+.button {
+  max-width: 190px;
+  width: 100%;
+  height: 60px;
+  background: transparent;
+  border: none;
+  font-family: $lato-font;
+  border-radius: 0 30px 30px 30px;
+  cursor: pointer;
+  @include respond($mobile) {
+    font-size: 16px;
+  }
+  @include respond(0, $mobile) {
+    font-size: 14px;
+  }
+  line-height: 1.875;
+  text-transform: uppercase;
+  font-weight: bold;
+  letter-spacing: .4px;
+  transition: border-radius $transition-delay ease;
+  user-select: none;
+
+  &:focus,
+  &:hover {
+    border-radius: 30px;
+  }
+
+  &-brown {
+    background: $brown;
+    color: $white;
+  }
+
+  &-clear {
+    background: transparent;
+    color: $brown;
+    box-shadow: inset 0 0 0 1px $brown;
+  }
+}
+
+.train {
+  position: fixed;
+  right: 40px;
+  bottom: 40px;
+  border-radius: 50%;
+  background: $brown;
+  width: 60px;
+  height: 60px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 1000;
+  cursor: pointer;
+  opacity: 0;
+  transition: opacity $transition-delay ease, transform $transition-delay ease;
+
+  &:hover {
+    transform: scale(1.05);
+  }
+
+  svg {
+    transform: rotate(-90deg);
+    fill: $white;
+  }
+}
+
+.fade-in {
+  opacity: 1;
 }

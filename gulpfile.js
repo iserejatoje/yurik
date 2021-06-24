@@ -45,6 +45,7 @@ function scripts() {
         .pipe(
             webpack({
                 mode: "production",
+                // mode: "development",
                 performance: {hints: false},
                 module: {
                     rules: [

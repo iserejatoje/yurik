@@ -260,14 +260,12 @@
 
 @font-face {
   font-family: 'Lato';
-  font-style: normal;
+  src: url('../fonts/Lato-Bold.eot');
+  src: local('Lato Bold'), local('LatoBold'),
+  url('../fonts/Lato-Bold.woff2') format('woff2'),
+  url('../fonts/Lato-Bold.woff') format('woff'),
+  url('../fonts/Lato-Bold.ttf') format('truetype');
   font-weight: bold;
-  src: url('../fonts/lato-v17-latin-700.eot');
-  src: local(''),
-  url('../fonts/lato-v17-latin-700.eot?#iefix') format('embedded-opentype'),
-  url('../fonts/lato-v17-latin-700.woff2') format('woff2'),
-  url('../fonts/lato-v17-latin-700.woff') format('woff'),
-  url('../fonts/lato-v17-latin-700.ttf') format('truetype'),
-  url('../fonts/lato-v17-latin-700.svg#Lato') format('svg');
+  font-style: normal;
   font-display: swap;
 }
