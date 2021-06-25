@@ -1,0 +1,16 @@
+.practice-header {
+  min-height: 545px;
+
+  picture {
+    position: absolute;
+    left: 0;
+    right: 0;
+
+    img {
+      max-width: 100%;
+      display: block;
+      object-fit: cover;
+      height: 100%;
+    }
+  }
+}
