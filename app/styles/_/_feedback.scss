@@ -8,6 +8,10 @@ $inputDelay: 180ms;
   padding-top: 48px;
   padding-bottom: 32px;
 
+  @include respond(0, $mobile) {
+    margin-bottom: 30px;
+  }
+
   .container {
     display: flex;
 

@@ -19,6 +19,6 @@ export function initMap() {
                 })
                 L.marker([55.35117, 86.070965], {icon: pin}).addTo(map)
             }
-        }, 1200)
+        }, 1400)
     }
 }

@@ -35,6 +35,17 @@ section.contacts {
 
     .column:nth-child(1) {
 
+      a {
+        text-decoration: none;
+        color: $dark;
+        display: inline-block;
+        transition: color $transition-delay ease;
+
+        &:hover {
+          color: $brown;
+        }
+      }
+
       @include respond(0, $mobile) {
         margin-bottom: 20px;
       }
@@ -147,7 +158,12 @@ section.contacts {
       }
 
       &:not(:last-child) {
-        margin-bottom: 26px;
+        @include respond($mobile) {
+          margin-bottom: 26px;
+        }
+        @include respond(0, $mobile) {
+          margin-bottom: 18px;
+        }
       }
 
       svg {
