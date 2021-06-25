@@ -55,7 +55,7 @@ section.contacts {
         left: 0;
 
         @include respond($mobile) {
-          top: 13px;
+          top: 15px;
         }
         @include respond(0, $mobile) {
           top: 9px;
@@ -237,13 +237,6 @@ section.contacts {
     @include respond($mobile) {
       min-height: 820px;
     }
-  }
-
-  .feedback {
-    background: linear-gradient(58deg, #2f453e 20%, #0d192b 84%);
-    min-height: 608px;
-    padding-top: 40px;
-    padding-bottom: 50px;
   }
 
 }

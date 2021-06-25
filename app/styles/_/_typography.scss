@@ -3,6 +3,23 @@
 @import "mixins";
 
 .heading-line {
+  font-family: $lato-font;
+
+  &.r-pd0 {
+    span {
+      &:after {
+        right: 0;
+      }
+    }
+  }
+
+  &.r-pd {
+    span {
+      &:after {
+        right: 114px;
+      }
+    }
+  }
 
   br {
     @include respond(0, $mobile) {
@@ -19,7 +36,6 @@
       content: '';
       height: 1px;
       background: $brown-light;
-      right: 0;
       left: -9999px;
       bottom: 0;
       display: block;
@@ -53,11 +69,28 @@ h2 {
     font-size: 40px;
   }
   @include respond(0, $mobile) {
-    font-size: 30px;
+    font-size: 26px;
   }
   span {
     color: $brown-light;
     padding-bottom: 10px;
+    @include respond($mobile) {
+      display: block;
+    }
+  }
+}
+
+.fs-40-pd-30 {
+  line-height: 1.25;
+  @include respond($mobile) {
+    font-size: 40px;
+  }
+  @include respond(0, $mobile) {
+    font-size: 26px;
+  }
+  span {
+    color: $brown-light;
+    padding-bottom: 30px;
     @include respond($mobile) {
       display: block;
     }

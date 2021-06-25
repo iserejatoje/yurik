@@ -85,6 +85,18 @@ footer {
   background: $white;
   padding-bottom: 30px;
 
+  .communication {
+    padding-top: 18px;
+
+    @include respond(0, $mobile) {
+      justify-content: center;
+    }
+
+    @include respond($mobile) {
+      justify-content: flex-end;
+    }
+  }
+
   @include respond($mobile) {
     display: flex;
   }
@@ -495,18 +507,47 @@ nav {
 .communication {
   display: flex;
   align-items: center;
-  padding-top: 18px;
 
-  @include respond($mobile) {
-    justify-content: flex-end;
+  &.communication-light {
+    svg {
+      fill: $white;
+    }
+
+    a {
+      border: 1px solid $white;
+
+      &:focus,
+      &:hover {
+        background: $brown;
+        border: 1px solid $brown;
+
+        svg {
+          fill: $white;
+        }
+      }
+    }
   }
 
-  @include respond(0, $mobile) {
-    justify-content: center;
+  &.communication-brown {
+    svg {
+      fill: $brown;
+    }
+
+    a {
+      border: 1px solid $brown;
+
+      &:focus,
+      &:hover {
+        background: $brown;
+
+        svg {
+          fill: $white;
+        }
+      }
+    }
   }
 
   svg {
-    fill: $brown;
     transition: fill $transition-delay ease;
 
     @include respond($mobile) {
@@ -519,7 +560,6 @@ nav {
 
   a {
     border-radius: 0 30px 30px 30px;
-    border: 1px solid $brown;
     @include respond($mobile) {
       width: 60px;
       height: 60px;
@@ -531,16 +571,7 @@ nav {
     display: inline-flex;
     align-items: center;
     justify-content: center;
-    transition: background $transition-delay ease;
-
-    &:focus,
-    &:hover {
-      background: $brown;
-
-      svg {
-        fill: $white;
-      }
-    }
+    transition: background $transition-delay ease, border-color $transition-delay ease;
 
     &:not(:last-child) {
       @include respond($mobile) {
@@ -636,7 +667,7 @@ nav {
   line-height: 1.875;
   text-transform: uppercase;
   font-weight: bold;
-  letter-spacing: .4px;
+  letter-spacing: .6px;
   transition: border-radius $transition-delay ease;
   user-select: none;
 
@@ -685,4 +716,8 @@ nav {
 
 .fade-in {
   opacity: 1;
+}
+
+.brown-text {
+  color: $brown;
 }

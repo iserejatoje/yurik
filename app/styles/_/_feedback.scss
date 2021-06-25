@@ -1,0 +1,300 @@
+@import "variables";
+@import "mixins";
+
+$inputDelay: 180ms;
+
+.feedback {
+  background: linear-gradient(58deg, #2f453e 20%, #0d192b 84%);
+  padding-top: 48px;
+  padding-bottom: 32px;
+
+  .container {
+    display: flex;
+
+    @include respond(0, 930px) {
+      flex-direction: column;
+    }
+  }
+
+  .column {
+    width: 100%;
+  }
+
+  .column:nth-child(1) {
+    @include respond(930px) {
+      max-width: 460px;
+    }
+    @include respond(0, 930px) {
+      margin-bottom: 35px;
+    }
+  }
+
+  .column:nth-child(2) {
+    @include respond(1180px) {
+      max-width: 304px;
+      text-align: center;
+      padding: 0 15px;
+    }
+    @include respond(0, 1180px) {
+      display: none;
+    }
+  }
+
+  .column:nth-child(3) {
+    flex: 1;
+
+    @include respond(1180px) {
+      padding: 0 15px;
+    }
+
+    @include respond(930px, 1180px) {
+      padding: 0 50px;
+    }
+  }
+
+  .heading-line {
+    color: $white;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .form-subtitle {
+    color: $white;
+    font-weight: 300;
+    line-height: 1.429;
+
+    @include respond($mobile) {
+      font-size: 21px;
+    }
+    @include respond(0, $mobile) {
+      font-size: 18px;
+    }
+    letter-spacing: 1px;
+    margin-top: 35px;
+  }
+
+  form {
+    margin-top: 40px;
+  }
+
+  input {
+    background: transparent;
+    border: none;
+    outline: none;
+    color: $white;
+    padding-bottom: 16px;
+    font-weight: 300;
+    @include respond($mobile) {
+      font-size: 21px;
+    }
+    @include respond(0, $mobile) {
+      font-size: 18px;
+    }
+    width: 100%;
+    letter-spacing: 1px;
+    line-height: 1.429;
+    border-bottom: 1px solid transparentize($brown, .5);
+    transition: border-bottom-color $transition-delay ease;
+
+    &:focus {
+      border-bottom: 1px solid $brown;
+    }
+  }
+
+  .form-input {
+    position: relative;
+
+    &.first {
+      margin-bottom: 44px;
+    }
+
+    &.active {
+      .input-label {
+        top: -28px;
+        font-size: 14px;
+        letter-spacing: .5px;
+      }
+    }
+  }
+
+  .input-label {
+    position: absolute;
+    transition: top $inputDelay ease, font-size $inputDelay ease, letter-spacing $inputDelay ease;
+    top: 1px;
+    left: 2px;
+    letter-spacing: 1px;
+    color: transparentize($white, .5);
+    font-weight: 300;
+    pointer-events: none;
+    line-height: 1.429;
+
+    @include respond($mobile) {
+      font-size: 21px;
+    }
+    @include respond(0, $mobile) {
+      font-size: 18px;
+    }
+  }
+
+  .label-policy {
+    font-size: 13px;
+    color: transparentize($white, .5);
+    line-height: 1.6;
+    padding-top: 24px;
+    padding-bottom: 34px;
+
+    label {
+      position: relative;
+    }
+
+    .checkbox-text {
+      padding-left: 25px;
+      display: block;
+      letter-spacing: 1px;
+    }
+
+    a {
+      color: transparentize($brown-light, .5);
+    }
+  }
+
+  .checkbox {
+    width: 15px;
+    height: 15px;
+    border: 1px solid $brown;
+    display: inline-block;
+    margin-right: 9px;
+    position: absolute;
+    left: 0;
+    top: 2px;
+    cursor: pointer;
+    z-index: 1;
+
+    input {
+      opacity: 0;
+      position: absolute;
+      left: -9999px;
+    }
+
+    input:checked + .checkmark {
+      opacity: 1;
+    }
+  }
+
+  .checkmark {
+    pointer-events: none;
+    display: inline-block;
+    width: 20px;
+    height: 20px;
+    transform: rotate(45deg);
+    opacity: 0;
+    transition: opacity 150ms ease;
+  }
+
+  .checkmark-stem {
+    position: absolute;
+    width: 2px;
+    height: 12px;
+    background: $brown;
+    left: 6px;
+    top: 0;
+  }
+
+  .checkmark-kick {
+    position: absolute;
+    width: 6px;
+    height: 2px;
+    background: $brown;
+    left: 1px;
+    top: 10px;
+  }
+
+  .connection {
+    display: flex;
+    flex-direction: column;
+    padding-top: 20px;
+
+    a {
+      max-width: 293px;
+      padding: 0 12px;
+      width: 100%;
+      display: inline-flex;
+      align-items: center;
+      color: $white;
+      font-size: 16px;
+      text-decoration: none;
+      min-height: 60px;
+      border-radius: 0 30px 30px 30px;
+      transition: border-radius $transition-delay ease;
+
+      &:not(:last-child) {
+        margin-bottom: 10px;
+      }
+
+      &:hover {
+        border-radius: 30px;
+      }
+    }
+
+    .text {
+      text-align: center;
+      letter-spacing: 1px;
+      flex: 1;
+    }
+
+    .rounded {
+      background: $white;
+      width: 34px;
+      height: 34px;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .t-link {
+      background: #0088cc;
+
+      svg {
+        fill: #0088cc;
+      }
+    }
+
+    .wt-link {
+      background: #25d366;
+
+      svg {
+        fill: #25d366;
+        transform: translateX(1px);
+      }
+    }
+
+    .vb-link {
+      background: #7360f2;
+
+      svg {
+        fill: #7360f2;
+      }
+    }
+  }
+
+  .phone-image {
+    @include respond(0, 1180px) {
+      display: none;
+    }
+  }
+
+  .communication {
+    padding-top: 22px;
+  }
+
+  .invite-text {
+    color: $white;
+    max-width: 320px;
+    font-size: 24px;
+    font-family: $lato-font;
+    line-height: 1.5;
+    padding-top: 22px;
+  }
+}
