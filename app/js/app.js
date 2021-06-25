@@ -18,7 +18,17 @@ function initTrainEvent() {
 
 document.addEventListener('DOMContentLoaded', () => {
     initTrainEvent()
+
     initMap()
+
+    const train = document.querySelector('.train')
+
+    train.addEventListener('click', event => {
+        window.scrollTo({
+            top: 0,
+            behavior: "smooth"
+        })
+    })
 })
 
 window.addEventListener('scroll', () => {
