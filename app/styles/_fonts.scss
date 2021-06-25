@@ -261,9 +261,10 @@
 @font-face {
   font-family: 'Lato';
   src: url('../fonts/Lato-Bold.eot');
-  src: local('Lato Bold'), local('LatoBold'),
-  url('../fonts/Lato-Bold.woff2') format('woff2'),
+  src: local('Lato Black'),
+  url('../fonts/Lato-Bold.eot?#iefix') format('embedded-opentype'),
   url('../fonts/Lato-Bold.woff') format('woff'),
+  url('../fonts/Lato-Bold.woff2') format('woff2'),
   url('../fonts/Lato-Bold.ttf') format('truetype');
   font-weight: bold;
   font-style: normal;
