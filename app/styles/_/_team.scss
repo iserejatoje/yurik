@@ -83,6 +83,11 @@ section.team {
     @include respond(0, 600px) {
       flex-direction: column;
     }
+    .more-link_pointer {
+      @include respond(0, 600px) {
+        display: none;
+      }
+    }
     background: $white;
     box-shadow: 2.121px 2.121px 6px 0 rgba(150, 117, 60, 0.14), 8.485px 8.485px 13px 0 rgba(150, 117, 60, 0.07);
     transition: box-shadow $transition-delay ease, opacity ($transition-delay * 2) ease;
@@ -140,7 +145,7 @@ section.team {
       color: $dark;
       text-decoration: none;
       max-width: 200px;
-      font-weight: 700;
+      font-weight: bold;
       @include respond($mobile) {
         font-size: 21px;
       }
@@ -191,39 +196,14 @@ section.team {
     }
   }
 
-  .more-link_pointer {
-    opacity: 0;
-    transition: opacity $transition-delay ease;
-    font-family: $lato-font;
-    color: $brown;
-    @include respond($mobile) {
-      font-size: 16px;
-    }
-    @include respond(0, $mobile) {
-      font-size: 14px;
-    }
-    font-weight: bold;
-    text-decoration: none;
-    text-transform: uppercase;
-    margin-left: auto;
-    letter-spacing: 1px;
-    display: inline-flex;
-    align-items: center;
-    @include respond(0, 600px) {
-      display: none;
-    }
+}
 
-    svg {
-      fill: $brown;
-      margin-left: 10px;
-    }
-  }
-
+.swiper-pagination-bullets {
+  display: flex;
 }
 
 .team-pagination {
-  display: flex;
-  @include respond(0, $mobile) {
+  @include respond(900px, $mobile) {
     margin-left: 35px;
   }
   @include respond(0, 900px) {
@@ -238,7 +218,9 @@ section.team {
   @include respond($mobile, 1200px) {
     padding-left: 30px;
   }
-  padding-top: 25px;
+  @include respond(900px) {
+    padding-top: 25px;
+  }
   @include respond(1200px) {
     overflow: hidden;
   }

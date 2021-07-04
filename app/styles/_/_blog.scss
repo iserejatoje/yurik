@@ -1,0 +1,242 @@
+@import "../fonts";
+@import "variables";
+@import "mixins";
+
+section.blog {
+  overflow: hidden;
+  position: relative;
+
+  @include respond($mobile) {
+    padding-top: 174px;
+  }
+  @include respond(0, $mobile) {
+    padding-top: 44px;
+  }
+  background: url(../images/blog-bg.png) no-repeat center / cover;
+
+  .blog-slider_wrapper {
+    position: relative;
+    padding-bottom: 10px;
+
+    &:after {
+      right: 33px;
+      left: -1000px;
+      height: 170px;
+      content: '';
+      bottom: 0;
+      position: absolute;
+      background: transparentize($brown, .9);
+      border-radius: 0 60px 60px 0;
+      pointer-events: none;
+    }
+  }
+
+  .swiper-container-multirow-column {
+    height: 940px;
+    padding-bottom: 65px;
+  }
+
+  .swiper-navigation {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding-top: 33px;
+
+    @include respond($mobile) {
+      padding-bottom: 125px;
+    }
+    @include respond(0, $mobile) {
+      display: none;
+    }
+  }
+
+  .swiper-pages {
+    display: flex;
+  }
+
+  .swiper-pages {
+    button:not(:first-child),
+    button:not(:last-child) {
+      margin: 0 7px;
+    }
+  }
+
+  .slider-prev {
+    margin-right: 24px;
+  }
+
+  .slider-next {
+    margin-left: 24px;
+  }
+
+  .slider-button {
+    color: $brown;
+    transition: color $transition-delay ease, background $transition-delay ease;
+    font-size: 20px;
+    font-weight: 600;
+
+    &:hover {
+      color: $white;
+    }
+  }
+
+  .swiper-container {
+    width: 100%;
+
+    @include respond($mobile) {
+      padding-top: 45px;
+    }
+  }
+
+  .image {
+    svg {
+      position: absolute;
+      top: 0;
+      left: 0;
+      pointer-events: none;
+    }
+  }
+
+  .non-swiper-slide {
+    display: none;
+  }
+
+  .swiper-pagination-bullets {
+    justify-content: flex-end;
+    @include respond($mobile) {
+      padding-top: 60px;
+    }
+    @include respond(0, $mobile) {
+      padding-top: 30px;
+    }
+    padding-right: 96px;
+  }
+
+  .swiper-slide {
+    background: #fff;
+    height: calc((100% - 30px) / 2);
+    min-height: 400px;
+    border: 1px solid $brown;
+    overflow: hidden;
+    transition: box-shadow $transition-delay ease;
+    text-decoration: none;
+    color: $dark;
+
+    .date {
+      font-weight: 300;
+      font-size: 16px;
+      margin-right: 20px;
+    }
+
+    .content {
+      padding: 30px;
+    }
+
+    .info {
+      display: flex;
+      justify-content: space-between;
+      flex-wrap: wrap;
+    }
+
+    .category {
+      font-family: $lato-font;
+      font-weight: bold;
+      font-size: 16px;
+      text-transform: uppercase;
+      color: transparentize($brown, .5);
+    }
+
+    .title {
+      font-size: 21px;
+      font-family: $lato-font;
+      font-weight: bold;
+      line-height: 1.667;
+      margin-top: 22px;
+    }
+
+    img {
+      max-width: 317px;
+      display: block;
+      clip-path: url(#svgPath);
+      position: relative;
+      z-index: 1;
+      transform: translate(-1px, -1px);
+      pointer-events: none;
+      min-height: 140px;
+      object-fit: cover;
+      width: 100%;
+    }
+
+    .image {
+      height: 140px;
+    }
+
+    &:hover {
+      @include respond($mobile) {
+        box-shadow: 19.092px 19.092px 51px 0 rgba(150, 117, 60, 0.2), 9.192px 9.192px 24px 0 rgba(150, 117, 60, 0.11);
+      }
+    }
+  }
+
+  .heading-blog {
+    @include respond($mobile) {
+      display: flex;
+      align-items: flex-end;
+    }
+  }
+
+  .large-heading {
+    margin-right: 86px;
+  }
+
+  .filter {
+    padding-bottom: 14px;
+
+    @include respond(0, $mobile) {
+      padding-top: 40px;
+    }
+
+    a {
+      @include respond(0, $mobile) {
+        margin-bottom: 40px;
+        margin-right: 24px;
+      }
+      @include respond($mobile) {
+        margin-right: 34px;
+      }
+      font-family: $lato-font;
+      font-weight: bold;
+      font-size: 16px;
+      display: inline-block;
+      text-transform: uppercase;
+      text-decoration: none;
+      color: $dark;
+      letter-spacing: 1px;
+      position: relative;
+      transition: color $transition-delay ease;
+
+      &:hover {
+        color: $brown-light;
+      }
+
+      &.active {
+        color: $brown-light;
+
+        &:after {
+          content: '';
+          position: absolute;
+          @include respond($mobile) {
+            bottom: -18px;
+          }
+          @include respond(0, $mobile) {
+            bottom: -10px;
+          }
+          left: -4px;
+          right: -4px;
+          height: 2px;
+          background: $brown-light;
+        }
+      }
+    }
+  }
+}

@@ -47,6 +47,13 @@ body {
   z-index: 100;
 }
 
+#svg-sprite {
+  height: 0;
+  width: 0;
+  position: absolute;
+  visibility: hidden;
+}
+
 .skip-link:focus {
   top: 0;
   bottom: auto;
@@ -60,14 +67,47 @@ body {
   margin-right: auto;
 }
 
+.seo-title {
+  text-transform: uppercase;
+  color: $brown;
+  font-size: 16px;
+  font-family: $lato-font;
+  font-weight: bold;
+  letter-spacing: 1.5px;
+  background-image: linear-gradient(transparentize($brown, .85), transparentize($brown, .85));
+  background-position: 0 9px;
+  background-size: 100% 14px;
+  background-repeat: repeat-x;
+  display: inline-block;
+  padding-bottom: 5px;
+}
+
 .container-fluid {
   padding-left: $container-padding;
   padding-right: $container-padding;
+  position: relative;
+  z-index: 1;
 
-  .column:first-child {
-    @include respond(1190px) {
-      margin-left: calc((100% - 1140px) / 2);
+  &_left {
+    .column:first-child {
+      @include respond(1190px) {
+        margin-left: calc((100% - 1140px) / 2);
+      }
     }
+  }
+
+  &_right {
+    .column:last-child {
+      @include respond(1190px) {
+        margin-right: calc((100% - 1140px) / 2);
+      }
+    }
+  }
+}
+
+.swiper-action {
+  @include respond(0, $mobile) {
+    justify-content: flex-end;
   }
 }
 
@@ -431,16 +471,28 @@ nav {
 
 .swiper-pagination-bullets {
 
+  &[dir="ltr"] {
+    .swiper-pagination-bullet {
+      &:not(:last-child) {
+        margin-right: 10px;
+      }
+    }
+  }
+
+  &[dir="rtl"] {
+    .swiper-pagination-bullet {
+      &:not(:last-child) {
+        margin-left: 10px;
+      }
+    }
+  }
+
   .swiper-pagination-bullet {
     cursor: pointer;
     width: 30px;
     height: 15px;
     border-top: 1px solid transparentize($brown, .5);
     display: block;
-
-    &:not(:last-child) {
-      margin-right: 10px;
-    }
 
     &-active {
       border-top: 1px solid $brown;
@@ -463,10 +515,6 @@ nav {
   }
 }
 
-.swiper-button-disabled {
-  opacity: .3;
-}
-
 .slider-prev,
 .slider-next {
   background: transparent;
@@ -486,6 +534,32 @@ nav {
   }
 
   &:focus,
+  &:hover {
+    background: $brown;
+
+    svg {
+      fill: $white;
+    }
+  }
+}
+
+.slider-button {
+  background: transparent;
+  width: 45px;
+  height: 45px;
+  border: 1px solid $brown;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+  cursor: pointer;
+  transition: background $transition-delay ease;
+
+  svg {
+    fill: $brown;
+    transition: fill $transition-delay ease;
+  }
+
   &:hover {
     background: $brown;
 
@@ -565,8 +639,8 @@ nav {
       height: 60px;
     }
     @include respond(0, $mobile) {
-      width: 42px;
-      height: 42px;
+      width: 45px;
+      height: 45px;
     }
     display: inline-flex;
     align-items: center;
@@ -650,7 +724,6 @@ nav {
 }
 
 .button {
-  max-width: 190px;
   width: 100%;
   height: 60px;
   background: transparent;
@@ -679,10 +752,18 @@ nav {
   &-brown {
     background: $brown;
     color: $white;
+    max-width: 190px;
+  }
+
+  &-request {
+    background: $brown;
+    color: $white;
+    max-width: 210px;
   }
 
   &-clear {
     background: transparent;
+    max-width: 190px;
     color: $brown;
     box-shadow: inset 0 0 0 1px $brown;
   }
@@ -690,12 +771,21 @@ nav {
 
 .train {
   position: fixed;
-  right: 40px;
-  bottom: 40px;
+  @include respond($mobile) {
+    right: 40px;
+    bottom: 40px;
+    width: 60px;
+    height: 60px;
+  }
+  @include respond(0, $mobile) {
+    //right: 12px;
+    //bottom: 84px;
+    //width: 50px;
+    //height: 50px;
+    display: none;
+  }
   border-radius: 50%;
   background: $brown;
-  width: 60px;
-  height: 60px;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -720,4 +810,34 @@ nav {
 
 .brown-text {
   color: $brown;
+}
+
+.z-1 {
+  z-index: 1;
+  position: relative;
+}
+
+.more-link_pointer {
+  opacity: 0;
+  transition: opacity $transition-delay ease;
+  font-family: $lato-font;
+  color: $brown;
+  @include respond($mobile) {
+    font-size: 16px;
+  }
+  @include respond(0, $mobile) {
+    font-size: 14px;
+  }
+  font-weight: bold;
+  text-decoration: none;
+  text-transform: uppercase;
+  margin-left: auto;
+  letter-spacing: 1px;
+  display: inline-flex;
+  align-items: center;
+
+  svg {
+    fill: $brown;
+    margin-left: 10px;
+  }
 }

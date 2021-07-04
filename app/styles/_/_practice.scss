@@ -1,16 +1,774 @@
-.practice-header {
-  min-height: 545px;
+@import "mixins";
+@import "variables";
+
+.practice {
+
+  .practice-header {
+    @include respond($mobile) {
+      min-height: 545px;
+    }
+    @include respond(650px) {
+      padding: 82px 0;
+    }
+    @include respond(0, 650px) {
+      padding: 42px 0;
+    }
+    position: relative;
+
+    .container {
+      position: relative;
+    }
+
+    .title {
+      @extend .small-text;
+      max-width: 385px;
+      @include respond($mobile) {
+        margin: 50px 0 40px 0;
+      }
+      @include respond(0, $mobile) {
+        margin: 24px 0;
+      }
+    }
+
+    .button {
+      letter-spacing: 1px;
+    }
+
+    picture {
+      position: absolute;
+      left: 0;
+      right: 0;
+      top: 0;
+      bottom: 0;
+
+      img {
+        max-width: 100%;
+        display: block;
+        object-fit: cover;
+        height: 100%;
+      }
+    }
+
+    .heading-line {
+      @include respond($mobile) {
+        font-size: 45px;
+        line-height: 1.333;
+      }
+      @include respond(0, $mobile) {
+        font-size: 30px;
+        line-height: 1.23;
+      }
+
+      span {
+        color: $brown;
+        padding-bottom: 6px;
+      }
+    }
+
+    .path {
+      stroke: $brown;
+      position: absolute;
+      bottom: -57px;
+      transform: translateX(-12px);
+      pointer-events: none;
+      user-select: none;
+      @include respond(0, 650px) {
+        display: none;
+      }
+    }
+
+    .path-text {
+      transform: translate(80px, 7px);
+      pointer-events: none;
+      user-select: none;
+      @include respond(0, 650px) {
+        display: none;
+      }
+    }
+
+  }
+}
+
+.work-slider_wrapper {
+  position: relative;
+
+  @include respond($mobile) {
+    padding-right: 60px;
+    overflow: hidden;
+  }
+}
+
+.work-pagination {
+  @include respond(900px) {
+    margin-bottom: 50px;
+  }
+  @include respond(0, 900px) {
+    margin-bottom: 45px;
+    padding-top: 30px;
+  }
+}
+
+.work-slider {
+  &:before {
+    content: '';
+    position: absolute;
+    height: 170px;
+    @include respond(900px) {
+      left: 14px;
+      right: -60px;
+      border-radius: 0 0 60px 60px;
+    }
+    @include respond(0, 900px) {
+      left: -15px;
+      right: -15px;
+    }
+    pointer-events: none;
+    bottom: -21px;
+    background: transparentize($brown, .9);
+  }
+
+  &.swiper-container {
+    overflow: visible;
+  }
+
+  .swiper-wrapper {
+    padding-top: 50px;
+
+    @include respond(900px) {
+      padding-bottom: 54px;
+    }
+  }
 
   picture {
     position: absolute;
     left: 0;
     right: 0;
+    top: 0;
+    bottom: 0;
 
     img {
-      max-width: 100%;
       display: block;
       object-fit: cover;
+      width: 100%;
       height: 100%;
     }
   }
+
+  .swiper-slide {
+    background: $white;
+    transition: box-shadow $transition-delay ease;
+
+    @include respond(900px) {
+      max-width: 556px;
+      height: 230px;
+      width: 100%;
+    }
+    @include respond(0, 900px) {
+      min-height: 275px;
+    }
+    @include respond(900px) {
+      padding: 44px 46px 42px 42px;
+    }
+    @include respond(0, 900px) {
+      padding: 44px 25px 34px 30px;
+    }
+    text-align: left;
+    display: flex;
+    flex-direction: column;
+
+    .more-link_pointer {
+      position: relative;
+      margin-top: auto;
+      z-index: 1;
+    }
+
+    .counter {
+      position: absolute;
+      top: -24px;
+      right: 72px;
+      color: $white;
+      z-index: 1;
+      width: 44px;
+      font-family: $lato-font;
+      font-weight: bold;
+      font-size: 22px;
+      height: 44px;
+      background: $brown;
+      box-shadow: 0 0 0 8px transparentize($brown, .5);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+
+      &:before {
+        content: '';
+        position: absolute;
+        left: -20px;
+        right: 0;
+        top: 0;
+        width: 82px;
+        height: 82px;
+        bottom: 0;
+        margin: auto;
+        border: 1px solid transparentize($brown, .5);
+        border-radius: 50%;
+        display: block;
+      }
+    }
+
+    .title {
+      @include respond($mobile) {
+        font-size: 24px;
+      }
+      @include respond(0, $mobile) {
+        font-size: 20px;
+      }
+      @include respond(900px) {
+        padding-bottom: 8px;
+      }
+      @include respond(0, 900px) {
+        padding-bottom: 25px;
+      }
+      font-family: $lato-font;
+      line-height: 1.458;
+      position: relative;
+      z-index: 1;
+      display: inline;
+
+      @include respond($mobile) {
+        &:after {
+          content: '';
+          position: absolute;
+          height: 1px;
+          background: $brown;
+          right: 246px;
+          bottom: 0;
+          left: -42px;
+        }
+      }
+    }
+
+    &:after {
+      content: '';
+      position: absolute;
+      left: 0;
+      right: 0;
+      top: 0;
+      bottom: 0;
+      border: 1px solid $brown;
+      opacity: 1;
+      transition: opacity $transition-delay ease;
+    }
+
+    &:active,
+    &:hover {
+
+      @include respond(900px) {
+        box-shadow: 19.092px 19.092px 51px 0 rgba(150, 117, 60, 0.2), 9.192px 9.192px 24px 0 rgba(150, 117, 60, 0.11);
+
+        &:after {
+          opacity: 0;
+        }
+      }
+
+      .more-link_pointer {
+        opacity: 1;
+      }
+
+    }
+  }
+}
+
+.works {
+  background: $white;
+
+  @include respond($mobile) {
+    padding: 140px 0;
+    min-height: 800px;
+  }
+
+  @include respond(0, $mobile) {
+    padding: 40px 0;
+  }
+
+  .columns {
+    justify-content: space-between;
+    @include respond($mobile) {
+      display: flex;
+    }
+  }
+
+  .column:first-child {
+    @include respond($mobile) {
+      margin-left: -15px;
+      flex: 1;
+      width: 50%;
+      max-width: 1095px;
+      min-width: 0;
+    }
+  }
+
+  .column:last-child {
+    @include respond(0, $mobile) {
+      padding-top: 40px;
+    }
+    @include respond($mobile) {
+      width: 100%;
+      max-width: 426px;
+      padding-left: 64px;
+    }
+
+    .title {
+      font-size: 35px;
+      font-family: $lato-font;
+      line-height: 1.143;
+      font-weight: bold;
+      position: relative;
+      padding-bottom: 6px;
+
+      &:after {
+        position: absolute;
+        content: '';
+        left: 0;
+        height: 1px;
+        background: $brown-light;
+        right: -9999px;
+        bottom: 0;
+        display: block;
+      }
+
+      span {
+        color: $brown;
+        display: block;
+      }
+    }
+  }
+
+  .small-text {
+    margin-top: 42px;
+  }
+
+  .numbers {
+    position: relative;
+    margin-top: 72px;
+    padding-left: 16px;
+    letter-spacing: 8px;
+
+    @include respond(0, $mobile) {
+      display: none;
+    }
+
+    .shield {
+      position: absolute;
+      left: -5px;
+      top: 11px;
+      z-index: 2;
+    }
+  }
+
+  .number {
+    font-size: 180px;
+    color: $brown;
+    font-weight: 800;
+    pointer-events: none;
+    user-select: none;
+    position: relative;
+    z-index: 1;
+
+    &-green {
+      background: linear-gradient(206deg, #133055 36%, #047152);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+  }
+
+  .number-shadow {
+    font-size: 180px;
+    color: transparentize($brown, .9);
+    font-weight: 800;
+    pointer-events: none;
+    user-select: none;
+    position: absolute;
+    left: 37px;
+    top: 10px;
+    z-index: 0;
+  }
+
+  .swiper-action {
+    justify-content: flex-end;
+  }
+
+}
+
+.banks {
+  position: relative;
+
+  @include respond($mobile) {
+    min-height: 840px;
+    padding: 155px 0;
+  }
+  @include respond(0, $mobile) {
+    padding: 20px 0 55px 0;
+  }
+
+  .banks-slider {
+    @include respond(900px) {
+      padding-top: 30px;
+    }
+    @include respond(0, $mobile) {
+      overflow: visible;
+    }
+  }
+
+  .image {
+    display: flex;
+    justify-content: center;
+    padding: 10px;
+    align-items: center;
+
+    @include respond(900px) {
+      min-height: 244px;
+    }
+    @include respond(0, 900px) {
+      min-height: 180px;
+    }
+
+    img {
+      display: block;
+      max-width: 100%;
+    }
+  }
+
+  .title {
+    font-family: $lato-font;
+    color: $dark;
+    text-decoration: none;
+    font-weight: bold;
+    position: relative;
+    line-height: 1.56;
+
+    @include respond($mobile) {
+      font-size: 21px;
+      padding: 0 20px 0 37px;
+      max-width: 280px;
+    }
+
+    @include respond(0, $mobile) {
+      font-size: 18px;
+      padding: 0 20px 15px 20px;
+    }
+
+    @include respond(900px) {
+      margin-bottom: 8px;
+      &:before {
+        content: '';
+        position: absolute;
+        bottom: -8px;
+        right: 0;
+        left: -100%;
+        height: 1px;
+        background: $brown-light;
+      }
+    }
+  }
+
+  .swiper-action {
+    justify-content: flex-end;
+
+    @include respond(0, $mobile) {
+      margin-top: 25px;
+    }
+    @include respond($mobile) {
+      margin-top: 15px;
+      transform: translateX(18px);
+    }
+    position: relative;
+    z-index: 1;
+  }
+
+  .banks-slider_wrapper {
+    position: relative;
+    padding-top: 25px;
+
+    @include respond($mobile) {
+      padding-left: 70px;
+      margin-top: 10px;
+    }
+
+    @include respond(0, $mobile) {
+      margin-top: 30px;
+    }
+
+    &:before {
+      content: '';
+      position: absolute;
+      height: 170px;
+      @include respond(900px) {
+        left: 0;
+        right: 0;
+        border-bottom-left-radius: 60px;
+      }
+      @include respond(0, 900px) {
+        left: -15px;
+        right: -15px;
+      }
+      pointer-events: none;
+      top: 0;
+      background: transparentize($brown, .9);
+    }
+  }
+
+  picture {
+    position: absolute;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    top: 0;
+
+    @include respond(0, $mobile) {
+      display: none;
+    }
+
+    img {
+      display: block;
+      height: 100%;
+      width: 100%;
+      object-fit: cover;
+    }
+  }
+
+  .columns {
+    justify-content: space-between;
+    @include respond($mobile) {
+      display: flex;
+    }
+  }
+
+  .column:last-child {
+    @include respond($mobile) {
+      flex: 1;
+      width: 50%;
+      margin-right: -15px;
+    }
+  }
+
+  .column:first-child {
+    @include respond($mobile) {
+      max-width: 514px;
+      flex: 1;
+
+      .small-text {
+        max-width: 300px;
+        margin: 44px 0;
+      }
+    }
+  }
+
+  .swiper-slide {
+    background: $white;
+    overflow: hidden;
+    @include respond(900px) {
+      max-width: 360px;
+    }
+    @include respond(900px) {
+      height: 400px;
+    }
+    border: 1px solid $brown;
+  }
+
+  .banks-pagination {
+    @include respond(900px, $mobile) {
+      margin-left: 35px;
+    }
+    @include respond(0, 900px) {
+      display: none;
+    }
+  }
+
+}
+
+.why {
+  @include respond($mobile) {
+    padding: 188px 0 140px 0;
+  }
+  @include respond(0, $mobile) {
+    padding: 68px 0 50px 0;
+  }
+  position: relative;
+
+  .swiper-wrapper {
+    padding-bottom: 44px;
+  }
+
+  .images {
+    min-height: 150px;
+    position: relative;
+
+    .icon {
+      position: absolute;
+      left: 85px;
+      bottom: 0;
+      z-index: 1;
+    }
+  }
+
+  .shield {
+    position: absolute;
+    top: 20px;
+    left: 40px;
+    z-index: 2;
+  }
+
+  .why-pagination {
+    padding-bottom: 25px;
+  }
+
+  .why-slider_wrapper {
+    @include respond($mobile) {
+      padding-right: 40px;
+    }
+    overflow: hidden;
+    padding-top: 28px;
+    transform: translateY(-28px);
+  }
+
+  .columns {
+    @include respond($mobile) {
+      display: flex;
+    }
+  }
+
+  .column:first-child {
+    @include respond($mobile) {
+      margin-left: -15px;
+      width: 50%;
+      max-width: 1204px;
+      flex: 1;
+    }
+  }
+
+  .why-slider {
+    overflow: visible;
+
+    &:before {
+      content: '';
+      position: absolute;
+      height: 170px;
+      @include respond(900px) {
+        left: 0;
+        right: -40px;
+        border-radius: 0 0 60px 60px;
+      }
+      @include respond(0, 900px) {
+        left: -15px;
+        right: -15px;
+      }
+      pointer-events: none;
+      bottom: 0;
+      background: transparentize($brown, .9);
+    }
+
+  }
+
+  .swiper-action {
+    @include respond($mobile) {
+      padding-bottom: 62px;
+    }
+    @include respond(0, $mobile) {
+      padding-bottom: 30px;
+    }
+  }
+
+  .small-text {
+    max-width: 320px;
+
+    @include respond($mobile) {
+      margin: 50px 0 40px 0;
+    }
+    @include respond(0, $mobile) {
+      margin: 30px 0 20px 0;
+    }
+  }
+
+  .column:last-child {
+
+    .title {
+      font-size: 40px;
+      font-family: $lato-font;
+      line-height: 1.2;
+      font-weight: bold;
+      position: relative;
+      padding-bottom: 10px;
+
+      &:after {
+        position: absolute;
+        content: '';
+        left: 0;
+        height: 1px;
+        background: $brown-light;
+        right: -9999px;
+        bottom: 0;
+        display: block;
+      }
+
+      span {
+        color: $brown;
+        display: block;
+      }
+    }
+
+    @include respond(0, $mobile) {
+      padding-top: 40px;
+    }
+    @include respond($mobile) {
+      width: 100%;
+      max-width: 684px;
+      padding-left: 55px;
+    }
+  }
+
+  .swiper-slide {
+    background: $white;
+    @include respond(900px) {
+      max-width: 325px;
+    }
+    @include respond(900px) {
+      height: 400px;
+    }
+    border: 1px solid $brown;
+
+    .text {
+      font-size: 16px;
+      font-weight: 300;
+      line-height: 1.563;
+      max-width: 297px;
+      padding: 0 37px;
+    }
+
+    .title {
+      font-size: 24px;
+      font-family: $lato-font;
+      font-weight: bold;
+      line-height: 1.458;
+      padding: 24px 37px;
+      overflow: hidden;
+
+      span {
+        display: inline-block;
+        position: relative;
+        padding-bottom: 8px;
+
+        &:before {
+          content: '';
+          position: absolute;
+          right: 0;
+          left: -300px;
+          height: 1px;
+          bottom: 0;
+          background: transparentize($brown, .5);
+        }
+      }
+    }
+  }
+
 }

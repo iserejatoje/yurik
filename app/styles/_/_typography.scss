@@ -1,9 +1,10 @@
-@import "app/styles/fonts";
+@import "../fonts";
 @import "variables";
 @import "mixins";
 
 .heading-line {
   font-family: $lato-font;
+  font-weight: bold;
 
   &.r-pd0 {
     span {
@@ -63,6 +64,43 @@ h2 {
   }
 }
 
+.large-heading {
+  @include respond($mobile) {
+    font-size: 55px;
+    line-height: 1.182;
+  }
+  @include respond(0, $mobile) {
+    font-size: 32px;
+    line-height: 1.2;
+  }
+  br {
+    @include respond(0, $mobile) {
+      display: none;
+    }
+  }
+  span {
+    position: relative;
+    color: $brown-light;
+    padding-bottom: 10px;
+    @include respond($mobile) {
+      &:not(.inline) {
+        display: block;
+      }
+    }
+    &:after {
+      position: absolute;
+      content: '';
+      height: 1px;
+      background: $brown-light;
+      left: -999px;
+      bottom: 0;
+      right: 0;
+      display: block;
+    }
+  }
+}
+
+
 .fs-40 {
   line-height: 1.25;
   @include respond($mobile) {
@@ -75,7 +113,9 @@ h2 {
     color: $brown-light;
     padding-bottom: 10px;
     @include respond($mobile) {
-      display: block;
+      &:not(.inline) {
+        display: block;
+      }
     }
   }
 }
@@ -95,4 +135,16 @@ h2 {
       display: block;
     }
   }
+}
+
+.small-text {
+  @include respond($mobile) {
+    font-size: 21px;
+  }
+  @include respond(0, $mobile) {
+    font-size: 16px;
+  }
+  font-weight: 300;
+  line-height: 1.429;
+  letter-spacing: 1px;
 }
