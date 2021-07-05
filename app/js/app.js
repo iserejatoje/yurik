@@ -78,6 +78,13 @@ function filterBlogSlider(filterName) {
     const slider = document.querySelector('.blog-slider').swiper;
     slider.destroy(true, true)
 
+    const slider_columns = document.querySelector('.blog-slider').hasClass('column-1');
+    let columns = 1;
+
+    if (!slider_columns) {
+        columns = 2;
+    }
+
     if (document.querySelectorAll('.blog-slider .swiper-slide').length > 3) {
         new Swiper('.blog-slider', {
             on: params,
@@ -92,12 +99,12 @@ function filterBlogSlider(filterName) {
                 },
                 1024: {
                     slidesPerView: 2,
-                    slidesPerColumn: 2,
+                    slidesPerColumn: columns,
                     spaceBetween: 30,
                 },
                 1366: {
                     slidesPerView: 3,
-                    slidesPerColumn: 2,
+                    slidesPerColumn: columns,
                     spaceBetween: 30,
                 }
             },
@@ -124,12 +131,12 @@ function filterBlogSlider(filterName) {
                 },
                 1024: {
                     slidesPerView: 2,
-                    slidesPerColumn: 2,
+                    slidesPerColumn: columns,
                     spaceBetween: 30,
                 },
                 1366: {
                     slidesPerView: 3,
-                    slidesPerColumn: 2,
+                    slidesPerColumn: columns,
                     spaceBetween: 30,
                 }
             },

@@ -2,26 +2,219 @@
 @import "variables";
 
 section.article {
-  padding: 160px 0 100px 0;
+
+  @include respond($mobile) {
+    padding: 160px 0 135px 0;
+  }
+  @include respond(0, $mobile) {
+    padding: 40px 0 60px 0;
+  }
 
   .content {
-    padding-top: 53px;
+
+    @include respond($mobile) {
+      padding-right: 70px;
+      padding-top: 53px;
+    }
+    @include respond(0, $mobile) {
+      padding-top: 20px;
+    }
 
     p {
       margin-bottom: 30px;
     }
   }
 
+  .author {
+    line-height: 1.429;
+    letter-spacing: 1px;
+    @include respond($mobile) {
+      font-size: 21px;
+    }
+    @include respond(0, $mobile) {
+      font-size: 18px;
+    }
+    font-weight: 300;
+    color: $brown;
+  }
+
+  .links {
+    display: flex;
+
+    @include respond($mobile) {
+      align-items: center;
+      padding-top: 54px;
+    }
+    @include respond(0, $mobile) {
+      flex-direction: column;
+      padding-top: 24px;
+    }
+
+    .communication {
+      @include respond(0, $mobile) {
+        margin: 25px 0 20px 0;
+      }
+      @include respond($mobile) {
+        transform: translateY(8px);
+      }
+    }
+
+    .label {
+      font-weight: 800;
+
+      @include respond($mobile) {
+        font-size: 21px;
+      }
+      @include respond(0, $mobile) {
+        font-size: 18px;
+      }
+
+      &.last {
+        @include respond($mobile) {
+          margin-left: auto;
+        }
+
+        a {
+          text-decoration: none;
+          border-bottom: 1px solid;
+        }
+      }
+
+      &.first {
+        margin-right: 40px;
+      }
+
+      letter-spacing: 1px;
+    }
+  }
+
+  ul {
+    margin: 0;
+    padding: 0;
+
+    li {
+      list-style: none;
+      @include respond($mobile) {
+        padding-left: 195px;
+        margin-bottom: 52px;
+      }
+      @include respond(0, $mobile) {
+        margin-bottom: 28px;
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+      }
+      counter-increment: numbers;
+      position: relative;
+      line-height: 1.429;
+      letter-spacing: 1px;
+
+      &:before {
+        content: '';
+        @include respond($mobile) {
+          position: absolute;
+        }
+        @include respond(0, $mobile) {
+          margin-bottom: 12px;
+        }
+        width: 28px;
+        left: 97px;
+        top: 14px;
+        height: 2px;
+        background: $brown;
+      }
+    }
+  }
+
+  ol {
+    margin: 0;
+    padding: 0;
+    counter-reset: numbers;
+
+    li {
+      list-style: none;
+      @include respond($mobile) {
+        padding-left: 195px;
+        margin-bottom: 52px;
+      }
+      @include respond(0, $mobile) {
+        margin-bottom: 28px;
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+      }
+      counter-increment: numbers;
+      position: relative;
+      line-height: 1.429;
+      letter-spacing: 1px;
+
+      &:before {
+        content: counter(numbers);
+        @include respond($mobile) {
+          position: absolute;
+        }
+        @include respond(0, $mobile) {
+          margin-bottom: 12px;
+        }
+        font-family: $lato-font;
+        font-weight: bold;
+        @include respond($mobile) {
+          left: 96px;
+        }
+        @include respond(0, $mobile) {
+          left: 0;
+        }
+        padding: 0 2px;
+        @include respond($mobile) {
+          font-size: 40px;
+        }
+        @include respond(0, $mobile) {
+          font-size: 24px;
+        }
+        border-bottom: 1px solid $brown;
+      }
+    }
+  }
+
+  ul {
+    @include respond($mobile) {
+      font-size: 21px;
+    }
+    @include respond(0, $mobile) {
+      font-size: 16px;
+    }
+  }
+
+  ol {
+    @include respond($mobile) {
+      font-size: 21px;
+    }
+    @include respond(0, $mobile) {
+      font-size: 16px;
+    }
+    padding-top: 11px;
+  }
+
   .content,
   .content p {
-    font-size: 18px;
+    @include respond($mobile) {
+      font-size: 18px;
+    }
+    @include respond(0, $mobile) {
+      font-size: 16px;
+    }
     font-weight: 300;
     line-height: 1.667;
     letter-spacing: 0.9px;
   }
 
   h1 {
-    font-size: 30px;
+    @include respond($mobile) {
+      font-size: 30px;
+    }
+    @include respond(0, $mobile) {
+      font-size: 21px;
+    }
     font-family: $lato-font;
     font-weight: bold;
     line-height: 1.333;
@@ -30,7 +223,12 @@ section.article {
   }
 
   h2 {
-    font-size: 21px;
+    @include respond($mobile) {
+      font-size: 21px;
+    }
+    @include respond(0, $mobile) {
+      font-size: 18px;
+    }
     font-weight: 300;
     color: $brown;
     line-height: 1.429;

@@ -150,7 +150,7 @@ const params = {
     }
 }
 
-new Swiper('.blog-slider', {
+new Swiper('.blog-slider:not(.column-1)', {
     breakpoints: {
         0: {
             slidesPerView: 1,
@@ -165,6 +165,33 @@ new Swiper('.blog-slider', {
         1366: {
             slidesPerView: 3,
             slidesPerColumn: 2,
+            spaceBetween: 30,
+        }
+    },
+    pagination: {
+        el: '.blog-slider .swiper-pagination',
+        clickable: true,
+    },
+    slidesPerColumnFill: 'row',
+    navigation: {
+        nextEl: '.blog-next',
+        prevEl: '.blog-prev',
+    },
+    on: params
+})
+
+new Swiper('.blog-slider.column-1', {
+    breakpoints: {
+        0: {
+            slidesPerView: 1,
+            spaceBetween: 20,
+        },
+        1024: {
+            slidesPerView: 2,
+            spaceBetween: 30,
+        },
+        1366: {
+            slidesPerView: 3,
             spaceBetween: 30,
         }
     },

@@ -543,6 +543,42 @@ nav {
   }
 }
 
+blockquote {
+  @include respond($mobile) {
+    font-size: 21px;
+  }
+  @include respond(0, $mobile) {
+    font-size: 16px;
+  }
+  line-height: 1.429;
+  @include respond($mobile) {
+    padding-left: 195px;
+  }
+  @include respond(0, $mobile) {
+    padding-top: 5px;
+  }
+  margin: 0;
+  position: relative;
+  padding-bottom: 24px;
+
+  &:before {
+    content: '“';
+    @include respond($mobile) {
+      position: absolute;
+    }
+    @include respond(0, $mobile) {
+      display: block;
+      line-height: 0;
+      margin: 20px 0 5px 0;
+    }
+    font-size: 72px;
+    font-family: $lato-font;
+    font-weight: bold;
+    left: 95px;
+    top: -15px;
+  }
+}
+
 .category {
   font-family: $lato-font;
   font-weight: bold;

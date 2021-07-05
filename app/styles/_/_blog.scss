@@ -7,10 +7,20 @@ section.blog {
   position: relative;
 
   @include respond($mobile) {
-    padding-top: 174px;
+    &:not(.blog-in_article) {
+      padding-top: 174px;
+    }
+    &.blog-in_article {
+      padding-top: 110px;
+    }
   }
   @include respond(0, $mobile) {
-    padding-top: 44px;
+    &:not(.blog-in_article) {
+      padding-top: 44px;
+    }
+    &.blog-in_article {
+      padding-bottom: 45px;
+    }
   }
   background: url(../images/blog-bg.png) no-repeat center / cover;
 
