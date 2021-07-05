@@ -122,12 +122,6 @@ section.blog {
     text-decoration: none;
     color: $dark;
 
-    .date {
-      font-weight: 300;
-      font-size: 16px;
-      margin-right: 20px;
-    }
-
     .content {
       padding: 30px;
     }
@@ -138,20 +132,23 @@ section.blog {
       flex-wrap: wrap;
     }
 
-    .category {
-      font-family: $lato-font;
-      font-weight: bold;
-      font-size: 16px;
-      text-transform: uppercase;
-      color: transparentize($brown, .5);
-    }
-
     .title {
       font-size: 21px;
       font-family: $lato-font;
       font-weight: bold;
       line-height: 1.667;
       margin-top: 22px;
+      position: relative;
+
+      &:after {
+        content: '';
+        position: absolute;
+        height: 1px;
+        left: -200px;
+        bottom: -5px;
+        right: 59px;
+        background: $brown;
+      }
     }
 
     img {

@@ -1,0 +1,42 @@
+@import "mixins";
+@import "variables";
+
+section.article {
+  padding: 160px 0 100px 0;
+
+  .content {
+    padding-top: 53px;
+
+    p {
+      margin-bottom: 30px;
+    }
+  }
+
+  .content,
+  .content p {
+    font-size: 18px;
+    font-weight: 300;
+    line-height: 1.667;
+    letter-spacing: 0.9px;
+  }
+
+  h1 {
+    font-size: 30px;
+    font-family: $lato-font;
+    font-weight: bold;
+    line-height: 1.333;
+    margin-top: 26px;
+    margin-bottom: 37px;
+  }
+
+  h2 {
+    font-size: 21px;
+    font-weight: 300;
+    color: $brown;
+    line-height: 1.429;
+    text-align: left;
+    padding-bottom: 13px;
+    letter-spacing: 1.6px;
+    margin: 0;
+  }
+}

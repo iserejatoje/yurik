@@ -105,6 +105,7 @@ function filterBlogSlider(filterName) {
                 el: '.blog-slider .swiper-pagination',
                 clickable: true
             },
+            slidesPerColumnFill: 'row',
             navigation: {
                 nextEl: '.blog-next',
                 prevEl: '.blog-prev',
@@ -132,6 +133,7 @@ function filterBlogSlider(filterName) {
                     spaceBetween: 30,
                 }
             },
+            slidesPerColumnFill: 'row',
             pagination: {
                 el: '.blog-slider .swiper-pagination',
                 clickable: true
