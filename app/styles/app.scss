@@ -218,6 +218,18 @@ html {
       background: $dark;
     }
 
+    .location {
+      .select svg {
+        transition: fill $transition-delay ease;
+      }
+
+      &:hover {
+        .select svg {
+          fill: $brown;
+        }
+      }
+    }
+
     nav {
       a {
         &:before {
