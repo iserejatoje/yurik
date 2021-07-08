@@ -6,6 +6,23 @@
   font-family: $lato-font;
   font-weight: bold;
 
+  &.fs-40-black {
+    @include respond($mobile) {
+      font-size: 40px;
+    }
+    @include respond(0, $mobile) {
+      font-size: 28px;
+    }
+    span {
+      padding-bottom: 12px;
+
+      &:after {
+        right: 0;
+      }
+    }
+  }
+
+
   &.r-pd0 {
     span {
       &:after {
@@ -62,6 +79,7 @@ h1 {
     font-size: 36px;
     line-height: 1;
   }
+
   span {
     padding-bottom: 24px;
   }
@@ -76,11 +94,13 @@ h1 {
     font-size: 32px;
     line-height: 1.2;
   }
+
   br {
     @include respond(0, $mobile) {
       display: none;
     }
   }
+
   span {
     position: relative;
     color: $brown-light;
@@ -90,6 +110,7 @@ h1 {
         display: block;
       }
     }
+
     &:after {
       position: absolute;
       content: '';
@@ -103,7 +124,6 @@ h1 {
   }
 }
 
-
 .fs-40 {
   line-height: 1.25;
   @include respond($mobile) {
@@ -112,6 +132,7 @@ h1 {
   @include respond(0, $mobile) {
     font-size: 26px;
   }
+
   span {
     color: $brown-light;
     padding-bottom: 10px;
@@ -150,4 +171,21 @@ h1 {
   font-weight: 300;
   line-height: 1.429;
   letter-spacing: 1px;
+}
+
+.light-21 {
+  font-weight: 300;
+  @include respond($mobile) {
+    font-size: 21px;
+  }
+  @include respond(0, $mobile) {
+    font-size: 16px;
+  }
+  line-height: 1.667;
+}
+
+.bold-24 {
+  font-weight: bold;
+  font-size: 24px;
+  line-height: 1.667;
 }

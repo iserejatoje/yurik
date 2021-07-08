@@ -19,12 +19,223 @@ html {
   height: 100%;
 }
 
+.counter {
+  position: absolute;
+  top: -24px;
+  right: 72px;
+  color: $white;
+  z-index: 2;
+  width: 44px;
+  font-family: $lato-font;
+  font-weight: bold;
+  font-size: 22px;
+  height: 44px;
+  background: $brown;
+  box-shadow: 0 0 0 8px transparentize($brown, .5);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  &:before {
+    content: '';
+    position: absolute;
+    left: -20px;
+    right: 0;
+    top: 0;
+    width: 82px;
+    height: 82px;
+    bottom: 0;
+    margin: auto;
+    border: 1px solid transparentize($brown, .5);
+    border-radius: 50%;
+    display: block;
+  }
+}
+
+.numbers {
+  position: relative;
+  letter-spacing: 8px;
+
+  &:not(.pl) {
+    padding-left: 16px;
+  }
+
+  &.pl {
+    padding-left: 28px;
+    transform: translateY(-12px);
+  }
+
+  &.mt {
+    margin-top: 72px;
+  }
+
+  @include respond(0, $mobile) {
+    display: none;
+  }
+
+  .shield {
+    position: absolute;
+    left: -5px;
+    top: 11px;
+    z-index: 2;
+  }
+}
+
+.number {
+  font-size: 180px;
+  color: $brown;
+  font-weight: 800;
+  pointer-events: none;
+  user-select: none;
+  position: relative;
+  z-index: 1;
+
+  &-green {
+    background: linear-gradient(206deg, #133055 36%, #047152);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+  }
+}
+
+.number-medium {
+  font-size: 150px;
+  color: $brown;
+  font-weight: 800;
+  pointer-events: none;
+  user-select: none;
+  position: relative;
+  z-index: 1;
+
+  &-green {
+    background: linear-gradient(206deg, #133055 36%, #047152);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+  }
+}
+
+.number-shadow_medium {
+  font-size: 150px;
+  color: transparentize($brown, .9);
+  font-weight: 800;
+  pointer-events: none;
+  user-select: none;
+  position: absolute;
+  left: 37px;
+  top: 10px;
+  z-index: 0;
+}
+
+.number-shadow {
+  font-size: 180px;
+  color: transparentize($brown, .9);
+  font-weight: 800;
+  pointer-events: none;
+  user-select: none;
+  position: absolute;
+  left: 37px;
+  top: 10px;
+  z-index: 0;
+}
+
 #app {
   background: $white;
   overflow: hidden;
   display: flex;
   flex-direction: column;
   min-height: 100%;
+
+  &.frontpage {
+    picture {
+      img {
+        display: block;
+        max-width: 100%;
+      }
+    }
+
+    .burger-line {
+      background: $white;
+    }
+
+    .location {
+      .select svg {
+        fill: $white;
+        transition: fill $transition-delay ease;
+      }
+
+      &:hover {
+        .select svg {
+          fill: $brown;
+        }
+      }
+    }
+
+    header {
+      nav {
+        a {
+          color: transparentize($white, .5);
+
+          &:before {
+            background: $white;
+          }
+
+          &:hover {
+            color: $white;
+          }
+        }
+
+        &:after {
+          background: transparentize($white, .8);
+        }
+      }
+
+      .app-panel_block {
+        color: $white;
+      }
+    }
+
+    .burger {
+      &:hover {
+        .burger-line {
+          background: $brown;
+        }
+      }
+    }
+
+    .container-wild {
+      position: absolute;
+      left: 0;
+      right: 0;
+      top: 0;
+      overflow: hidden;
+      z-index: 1;
+    }
+
+  }
+
+  &:not(.frontpage) {
+    .burger-line {
+      background: $dark;
+    }
+
+    nav {
+      a {
+        &:before {
+          background: $dark;
+        }
+
+        color: transparentize($dark, .5);
+
+        &:hover {
+          color: $dark;
+        }
+      }
+
+      &:after {
+        background: transparentize($dark, .8);
+      }
+    }
+  }
 }
 
 body {
@@ -74,12 +285,23 @@ body {
   font-family: $lato-font;
   font-weight: bold;
   letter-spacing: 1.5px;
-  background-image: linear-gradient(transparentize($brown, .85), transparentize($brown, .85));
   background-position: 0 9px;
   background-size: 100% 14px;
   background-repeat: repeat-x;
   display: inline-block;
   padding-bottom: 5px;
+  position: relative;
+
+  &:before {
+    content: '';
+    position: absolute;
+    left: -6px;
+    right: -6px;
+    bottom: 3px;
+    background: transparentize($brown, .85);
+    height: 12px;
+    pointer-events: none;
+  }
 }
 
 .container-fluid {
@@ -246,7 +468,6 @@ header {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  background: $white;
 
   nav {
     a {
@@ -269,10 +490,6 @@ header {
         background: $dark;
         transition: width $transition-delay ease;
       }
-    }
-
-    &:after {
-      background: transparentize($dark, .8);
     }
   }
 
@@ -314,6 +531,18 @@ header {
   align-items: center;
 }
 
+footer {
+  nav {
+    a {
+      color: transparentize($dark, .5);
+
+      &:hover {
+        color: $dark;
+      }
+    }
+  }
+}
+
 nav {
   display: flex;
   justify-content: space-between;
@@ -331,14 +560,11 @@ nav {
   a {
     font-size: 18px;
     font-weight: 300;
-    color: transparentize($dark, .5);
     transition: color $transition-delay ease;
     letter-spacing: 1.45px;
     position: relative;
 
     &:hover {
-      color: $dark;
-
       &:before {
         opacity: 1;
         width: 40px;
@@ -368,7 +594,12 @@ nav {
       align-items: center;
 
       a {
-        color: $dark;
+        color: inherit;
+        transition: color $transition-delay ease;
+
+        &:hover {
+          color: $brown;
+        }
       }
 
       .pin {
@@ -380,7 +611,7 @@ nav {
     }
 
     .action-link {
-      color: $dark;
+      color: inherit;
       font-weight: 300;
       transition: color $transition-delay ease;
 
@@ -445,13 +676,6 @@ nav {
   cursor: pointer;
   margin-left: 15px;
   margin-right: 15px;
-
-  &:focus,
-  &:hover {
-    .burger-line {
-      background: $brown;
-    }
-  }
 
   @include respond($mobile) {
     display: none;
@@ -533,7 +757,6 @@ nav {
     transition: fill $transition-delay ease;
   }
 
-  &:focus,
   &:hover {
     background: $brown;
 
@@ -674,34 +897,66 @@ blockquote {
 
   svg {
     transition: fill $transition-delay ease;
+  }
 
-    @include respond($mobile) {
-      transform: translateY(-2px);
+  &:not(.communication-small) {
+    svg {
+      @include respond(0, $mobile) {
+        transform: scale(0.7);
+      }
     }
-    @include respond(0, $mobile) {
-      transform: scale(0.7);
+
+    a {
+      border-radius: 0 30px 30px 30px;
+
+      &:not(:last-child) {
+        @include respond($mobile) {
+          margin-right: 20px;
+        }
+      }
+
+      @include respond($mobile) {
+        width: 60px;
+        height: 60px;
+      }
+      @include respond(0, $mobile) {
+        width: 45px;
+        height: 45px;
+      }
+    }
+  }
+
+  &.communication-small {
+    a {
+      &:not(:last-child) {
+        @include respond($mobile) {
+          margin-right: 12px;
+        }
+      }
+
+      width: 32px;
+      height: 32px;
+
+      &:not(:last-child) {
+        @include respond($mobile) {
+          margin-right: 12px;
+        }
+      }
     }
   }
 
   a {
     border-radius: 0 30px 30px 30px;
-    @include respond($mobile) {
-      width: 60px;
-      height: 60px;
-    }
-    @include respond(0, $mobile) {
-      width: 45px;
-      height: 45px;
-    }
     display: inline-flex;
     align-items: center;
     justify-content: center;
-    transition: background $transition-delay ease, border-color $transition-delay ease;
+    transition: background $transition-delay ease, border-color $transition-delay ease, border-radius $transition-delay ease;
+
+    &:hover {
+      border-radius: 50%;
+    }
 
     &:not(:last-child) {
-      @include respond($mobile) {
-        margin-right: 20px;
-      }
       @include respond(0, $mobile) {
         margin-right: 14px;
       }
@@ -782,6 +1037,10 @@ blockquote {
   font-family: $lato-font;
   border-radius: 0 30px 30px 30px;
   cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  text-decoration: none;
+  justify-content: center;
   @include respond($mobile) {
     font-size: 16px;
   }
@@ -791,7 +1050,7 @@ blockquote {
   line-height: 1.875;
   text-transform: uppercase;
   font-weight: bold;
-  letter-spacing: .6px;
+  letter-spacing: .9px;
   transition: border-radius $transition-delay ease;
   user-select: none;
 
@@ -816,6 +1075,13 @@ blockquote {
     background: transparent;
     max-width: 190px;
     color: $brown;
+    box-shadow: inset 0 0 0 1px $brown;
+  }
+
+  &-gift {
+    background: transparent;
+    max-width: 290px;
+    color: $white;
     box-shadow: inset 0 0 0 1px $brown;
   }
 }
@@ -891,4 +1157,114 @@ blockquote {
     fill: $brown;
     margin-left: 10px;
   }
+}
+
+.connection {
+  display: flex;
+
+  &:not(.connection-icons) {
+    flex-direction: column;
+    padding-top: 20px;
+
+    a {
+      max-width: 293px;
+      width: 100%;
+      min-height: 60px;
+
+      &:not(:last-child) {
+        margin-bottom: 10px;
+      }
+    }
+
+    .t-link {
+      svg {
+        fill: #0088cc;
+      }
+    }
+
+    .wt-link {
+      svg {
+        fill: #25d366;
+      }
+    }
+
+    .vb-link {
+      svg {
+        fill: #7360f2;
+      }
+    }
+  }
+
+  &.connection-icons {
+    padding-top: 15px;
+
+    svg {
+      fill: $white;
+    }
+
+    a {
+      width: 44px;
+      height: 44px;
+
+      &:not(:last-child) {
+        margin-right: 15px;
+      }
+    }
+  }
+
+  a {
+    padding: 0 12px;
+    display: inline-flex;
+    align-items: center;
+    color: $white;
+    font-size: 16px;
+    text-decoration: none;
+    border-radius: 0 30px 30px 30px;
+    transition: border-radius $transition-delay ease;
+
+    &:hover {
+      border-radius: 30px;
+    }
+  }
+
+  .text {
+    text-align: center;
+    letter-spacing: 1px;
+    flex: 1;
+  }
+
+  .rounded {
+    background: $white;
+    width: 34px;
+    height: 34px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .t-link {
+    background: #0088cc;
+  }
+
+  .wt-link {
+    background: #25d366;
+
+    svg {
+      transform: translateX(1px);
+    }
+  }
+
+  .vb-link {
+    background: #7360f2;
+  }
+}
+
+.block-relative {
+  position: relative;
+}
+
+.swiper-slide {
+  color: $dark;
+  text-decoration: none;
 }

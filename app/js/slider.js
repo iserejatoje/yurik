@@ -102,6 +102,34 @@ new Swiper('.why-slider', {
     }
 })
 
+
+new Swiper('.news-slider', {
+    spaceBetween: 30,
+    speed: 500,
+    navigation: {
+        nextEl: '.news-prev',
+        prevEl: '.news-next',
+    },
+    pagination: {
+        el: '.news-pagination',
+        clickable: true
+    },
+    breakpoints: {
+        0: {
+            slidesPerView: 1,
+            spaceBetween: 20
+        },
+        900: {
+            spaceBetween: 30,
+            slidesPerView: 'auto'
+        },
+        1366: {
+            spaceBetween: 30,
+            slidesPerView: 'auto'
+        }
+    }
+})
+
 new Swiper('.banks-slider', {
     spaceBetween: 30,
     speed: 500,
@@ -111,6 +139,48 @@ new Swiper('.banks-slider', {
     },
     pagination: {
         el: '.banks-pagination',
+        clickable: true
+    },
+    breakpoints: {
+        0: {
+            slidesPerView: 1,
+            spaceBetween: 20
+        },
+        900: {
+            spaceBetween: 30,
+            slidesPerView: 'auto'
+        },
+        1366: {
+            spaceBetween: 30,
+            slidesPerView: 'auto'
+        }
+    }
+})
+
+new Swiper('.we-slider', {
+    on: {
+        paginationUpdate: function (e, paginationEl) {
+            const bullets = document.querySelectorAll('.we-pagination .swiper-pagination-bullet');
+            const numbers = document.querySelectorAll('.we-number');
+            for (let i = 0; i < bullets.length; i++) {
+                if (bullets[i].hasClass('swiper-pagination-bullet-active')) {
+
+                    for (let k = 0; k < numbers.length; k++) {
+                        numbers[k].innerHTML = '0' + (i + 1);
+                    }
+
+                }
+            }
+        },
+    },
+    spaceBetween: 30,
+    speed: 500,
+    navigation: {
+        nextEl: '.we-next',
+        prevEl: '.we-prev',
+    },
+    pagination: {
+        el: '.we-pagination',
         clickable: true
     },
     breakpoints: {

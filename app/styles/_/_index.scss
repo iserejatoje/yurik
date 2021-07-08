@@ -1,0 +1,894 @@
+@import "variables";
+@import "mixins";
+
+.frontpage-picture {
+  pointer-events: none;
+
+  @include respond(0, $mobile) {
+    display: none;
+  }
+
+  img {
+    display: block;
+    max-width: 100%;
+    height: 100%;
+    width: 100%;
+    position: absolute;
+    object-fit: cover;
+    top: 0;
+    min-height: 800px;
+    max-height: 800px;
+  }
+}
+
+.sparks {
+  position: absolute;
+  z-index: 1;
+  left: 54px;
+  top: 91px;
+  pointer-events: none;
+
+  @include respond(0, 1366px) {
+    display: none;
+  }
+}
+
+.frontpage-container {
+  width: 100%;
+  position: relative;
+  z-index: 2;
+
+  h1 {
+    @include respond($mobile) {
+      font-size: 50px;
+    }
+    @include respond(0, $mobile) {
+      font-size: 26px;
+    }
+    font-family: $lato-font;
+    font-weight: bold;
+    line-height: 1.2;
+    color: $white;
+    max-width: 500px;
+
+    span {
+      color: $brown;
+    }
+  }
+
+  .question {
+    font-family: $lato-font;
+    font-weight: bold;
+    line-height: 1.55;
+    @include respond($mobile) {
+      font-size: 20px;
+    }
+    @include respond(0, $mobile) {
+      font-size: 16px;
+    }
+    text-transform: uppercase;
+    color: $white;
+    padding: 36px 0 22px 0;
+  }
+
+  .buttons {
+    display: flex;
+    padding-top: 40px;
+    @include respond(0, $mobile) {
+      flex-direction: column;
+    }
+
+    .button:first-child {
+      @include respond($mobile) {
+        margin-right: 20px;
+      }
+      @include respond(0, $mobile) {
+        margin-bottom: 18px;
+      }
+    }
+  }
+
+  .annotation {
+    @include respond($mobile) {
+      font-size: 20px;
+    }
+    @include respond(0, $mobile) {
+      font-size: 16px;
+    }
+    font-weight: 300;
+    color: $white;
+    max-width: 410px;
+    padding-top: 24px;
+    letter-spacing: 2px;
+    line-height: 1.5;
+  }
+}
+
+section.main {
+  display: flex;
+  align-items: center;
+
+  @include respond($mobile) {
+    min-height: 800px;
+    padding-top: 105px;
+  }
+  @include respond(0, $mobile) {
+    padding-top: 135px;
+    padding-bottom: 40px;
+  }
+  @include respond(0, $mobile) {
+    background: linear-gradient(350deg, #022635, #022635, #003e62, #003d6a);
+  }
+}
+
+section.logos {
+  @include respond($mobile) {
+    padding: 150px 0 130px 0;
+  }
+  @include respond(0, $mobile) {
+    padding: 50px 0 20px 0;
+  }
+
+  .grid {
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+
+  }
+
+  .item {
+    border: 1px solid $brown;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    @include respond(560px, 1168px) {
+      max-width: calc(50% - 15px);
+      padding: 15px;
+      margin-bottom: 30px;
+    }
+    @include respond(0, 560px) {
+      max-width: 100%;
+      padding: 15px;
+      margin-bottom: 20px;
+    }
+    @include respond(1168px) {
+      max-width: 264px;
+      padding: 0 15px;
+      flex: 1;
+    }
+    width: 100%;
+
+    &:nth-child(odd) {
+      @include respond(560px) {
+        margin-right: 15px;
+      }
+    }
+
+    img {
+      display: block;
+      max-width: 100%;
+    }
+  }
+}
+
+section.about {
+  @include respond($mobile) {
+    padding: 188px 0 50px 0;
+  }
+  @include respond(0, $mobile) {
+    padding: 0 0 40px 0;
+  }
+
+  ul {
+    list-style: none;
+    padding: 0;
+    max-width: 630px;
+    margin-bottom: 25px;
+
+    li {
+      @include respond($mobile) {
+        padding-left: 36px;
+      }
+      @include respond(0, $mobile) {
+        padding-left: 26px;
+      }
+      position: relative;
+      line-height: 1.667;
+      letter-spacing: 1px;
+      font-weight: 300;
+      @include respond($mobile) {
+        font-size: 21px;
+      }
+      @include respond(0, $mobile) {
+        font-size: 16px;
+      }
+
+      margin-bottom: 10px;
+    }
+
+    svg {
+      fill: $brown;
+      position: absolute;
+      @include respond($mobile) {
+        left: 4px;
+        top: 10px;
+      }
+      @include respond(0, $mobile) {
+        left: 0;
+        top: 8px;
+      }
+
+    }
+  }
+
+  .title {
+    @include respond($mobile) {
+      font-size: 24px;
+    }
+    @include respond(0, $mobile) {
+      font-size: 20px;
+    }
+    font-weight: bold;
+    letter-spacing: 1.3px;
+    position: relative;
+    margin-bottom: 61px;
+
+    span {
+      position: relative;
+      padding-bottom: 21px;
+    }
+
+    span:after {
+      content: '';
+      right: 0;
+      left: -44px;
+      height: 1px;
+      background: $brown;
+      position: absolute;
+      bottom: 0;
+    }
+  }
+
+  .fs-40-black {
+    span:after {
+      right: 30px;
+    }
+  }
+
+  .annotation-bottom {
+    font-weight: 600;
+    line-height: 1.556;
+    font-size: 18px;
+    @include respond($mobile) {
+      padding-left: 36px;
+    }
+    letter-spacing: .9px;
+    max-width: 873px;
+  }
+
+  .text {
+    padding-top: 24px;
+    letter-spacing: 1.04px;
+    max-width: 880px;
+    @include respond($mobile) {
+      padding-bottom: 30px;
+    }
+
+    p {
+      margin-bottom: 35px;
+    }
+  }
+}
+
+section.clients {
+  @include respond(1154px) {
+    padding: 100px 0 44px 0;
+    min-height: 762px;
+  }
+  @include respond(0, 1154px) {
+    padding: 40px 0 50px 0;
+  }
+  position: relative;
+
+  .heading-line {
+    span {
+      padding-bottom: 4px;
+    }
+  }
+
+  .clients-bg {
+    position: absolute;
+    left: 0;
+    right: 0;
+    top: 0;
+    bottom: 0;
+
+    img {
+      height: 100%;
+    }
+  }
+
+  .columns {
+    display: flex;
+
+    @include respond(0, 1154px) {
+      flex-direction: column;
+    }
+
+    .column:first-child {
+      flex: 1;
+    }
+
+    .column:last-child {
+      img {
+        opacity: .2;
+      }
+    }
+  }
+
+  .picture-images {
+    @include respond(1154px) {
+      transform: translateY(-45px);
+    }
+  }
+
+  picture {
+    display: block;
+  }
+
+  .text {
+    @include respond(1154px) {
+      max-width: 378px;
+    }
+    letter-spacing: 1.2px;
+    padding-top: 28px;
+    line-height: 1.5;
+    @include respond(0, 1154px) {
+      margin-bottom: 40px;
+    }
+  }
+
+  .text,
+  .text p {
+    @include respond(1154px) {
+      font-size: 21px;
+    }
+    @include respond(0, 1154px) {
+      font-size: 18px;
+    }
+  }
+
+}
+
+section.way {
+  background: url(../images/way-bg.jpg) no-repeat center / cover;
+  position: relative;
+
+  @include respond($mobile) {
+    padding: 150px 0 100px 0;
+    min-height: 1000px;
+  }
+
+  @include respond(0, $mobile) {
+    padding: 50px 0;
+  }
+
+  .we-sparks {
+    @include respond(0, $mobile) {
+      display: none;
+    }
+    position: absolute;
+    left: 166px;
+    pointer-events: none;
+    top: 51px;
+    z-index: 10;
+  }
+
+  .heading-line span {
+    &:after {
+      right: 13px;
+    }
+  }
+
+  .we-help {
+    @include respond(0, $mobile) {
+      display: none;
+    }
+    padding-left: 196px;
+
+    svg {
+      position: absolute;
+      transform: translate(-41px, 28px);
+      pointer-events: none;
+    }
+  }
+
+  .small-text {
+    @include respond($mobile) {
+      padding: 50px 0;
+      max-width: 366px;
+    }
+    @include respond(0, $mobile) {
+      padding: 40px 0 25px 0;
+    }
+  }
+
+  .column:last-child {
+    @include respond($mobile) {
+      flex: 1;
+      width: 50%;
+    }
+  }
+
+  .column:first-child {
+    @include respond($mobile) {
+      flex: 1;
+      max-width: 518px;
+    }
+  }
+
+  .we-slider {
+    overflow: visible;
+    @include respond($mobile) {
+      padding-bottom: 80px;
+      padding-top: 44px;
+      transform: translateY(-14px);
+    }
+    @include respond(0, $mobile) {
+      overflow: visible;
+    }
+  }
+
+  .swiper-slide {
+    box-shadow: 2.121px 2.121px 6px 0 rgba(150, 117, 60, 0.14), 8.485px 8.485px 13px 0 rgba(150, 117, 60, 0.07);
+    background: $white;
+    min-height: 480px;
+    @include respond($mobile) {
+      max-width: 556px;
+    }
+    transition: box-shadow $transition-delay ease;
+    display: flex;
+    flex-direction: column;
+
+    &:hover {
+      box-shadow: 19.092px 19.092px 51px 0 rgba(150, 117, 60, 0.2), 9.192px 9.192px 24px 0 rgba(150, 117, 60, 0.11);
+    }
+
+    img {
+      max-width: 400px;
+      display: block;
+      clip-path: url(#svgPath);
+      position: relative;
+      z-index: 1;
+      transform: translate(-1px, -3px);
+      pointer-events: none;
+      object-fit: cover;
+      width: 100%;
+      height: 100%;
+    }
+
+    .inner {
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+      overflow: hidden;
+    }
+
+    .content {
+      padding: 25px 20px;
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+    }
+
+    .title {
+      padding-left: 30px;
+      font-size: 24px;
+      text-decoration: none;
+      color: $dark;
+      font-weight: 600;
+      display: inline-block;
+      border-bottom: 1px solid $brown;
+      padding-bottom: 10px;
+      max-width: 478px;
+      width: 100%;
+    }
+
+    ul {
+      list-style: none;
+      margin: 0;
+      padding: 0;
+      font-size: 16px;
+      color: rgba(55, 56, 68, 0.702);
+      line-height: 1.563;
+      letter-spacing: .8px;
+      max-width: 461px;
+
+      li {
+        letter-spacing: .8px;
+      }
+
+      svg {
+        fill: $brown;
+        margin-right: 10px;
+      }
+    }
+
+    .image {
+      height: 215px;
+      margin-bottom: 42px;
+      position: relative;
+
+      svg {
+        position: absolute;
+        top: 3px;
+        left: -13px;
+        pointer-events: none;
+        width: 440px;
+        height: 242px;
+      }
+    }
+
+    &:hover {
+      .more-link_pointer {
+        opacity: 1;
+      }
+    }
+
+  }
+
+  .more-link_pointer {
+    margin-top: auto;
+    padding-bottom: 17px;
+    padding-right: 20px;
+  }
+
+  .columns {
+    @include respond($mobile) {
+      display: flex;
+    }
+  }
+
+  .we-slider_wrapper {
+    position: relative;
+
+    @include respond($mobile) {
+      overflow: hidden;
+      margin-right: -15px;
+      padding-left: 70px;
+      margin-top: 10px;
+      padding-top: 25px;
+    }
+
+    @include respond(900px, $mobile) {
+      padding-top: 48px;
+    }
+
+    @include respond(0, 900px) {
+      padding-top: 25px;
+    }
+
+    @include respond(0, $mobile) {
+      margin-top: 30px;
+    }
+
+    &:before {
+      content: '';
+      position: absolute;
+      height: 170px;
+      @include respond($mobile) {
+        left: 0;
+        right: 0;
+        border-bottom-left-radius: 60px;
+      }
+      @include respond(0, $mobile) {
+        left: -15px;
+        right: -15px;
+      }
+      pointer-events: none;
+      top: 0;
+      background: transparentize($brown, .9);
+    }
+  }
+
+  .counter {
+    @include respond(0, 900px) {
+      display: none;
+    }
+  }
+
+  .we-pagination {
+    @include respond(0, 900px) {
+      display: none;
+    }
+  }
+
+  .swiper-action {
+    @include respond($mobile) {
+      position: absolute;
+      transform: translate(386px, -32px);
+      z-index: 10;
+    }
+  }
+
+}
+
+section.news {
+  @include respond($mobile) {
+    padding: 142px 0 124px 0;
+  }
+  @include respond(0, $mobile) {
+    padding: 0 0 50px 0;
+  }
+
+  position: relative;
+
+  .swiper-wrapper {
+    @include respond(900px) {
+      padding-bottom: 44px;
+    }
+  }
+
+  .images {
+    min-height: 150px;
+    position: relative;
+
+    .icon {
+      position: absolute;
+      left: 85px;
+      bottom: 0;
+      z-index: 1;
+    }
+  }
+
+  .shield {
+    position: absolute;
+    top: 20px;
+    left: 40px;
+    z-index: 2;
+  }
+
+  .news-pagination {
+    padding-bottom: 25px;
+  }
+
+  .news-slider_wrapper {
+    @include respond($mobile) {
+      padding-right: 51px;
+      overflow: hidden;
+    }
+    padding-top: 28px;
+    transform: translateY(-28px);
+  }
+
+  .columns {
+
+    @include respond(0, $mobile) {
+      display: flex;
+      flex-direction: column-reverse;
+    }
+    @include respond($mobile) {
+      display: flex;
+    }
+  }
+
+  .column:first-child {
+    @include respond(0, $mobile) {
+      margin-top: 30px;
+    }
+    @include respond($mobile) {
+      margin-left: -15px;
+      width: 50%;
+      max-width: 1085px;
+      flex: 1;
+    }
+  }
+
+  .news-slider {
+    overflow: visible;
+
+    &:before {
+      content: '';
+      position: absolute;
+      height: 170px;
+      @include respond(900px) {
+        left: 0;
+        right: -51px;
+        border-radius: 0 0 60px 60px;
+      }
+      @include respond(0, 900px) {
+        left: -15px;
+        right: -15px;
+      }
+      pointer-events: none;
+      bottom: 0;
+      background: transparentize($brown, .9);
+    }
+
+  }
+
+  .swiper-action {
+    @include respond($mobile) {
+      padding-bottom: 62px;
+    }
+    @include respond(0, $mobile) {
+      padding-bottom: 30px;
+    }
+  }
+
+  .small-text {
+    line-height: 1.6;
+    @include respond($mobile) {
+      margin: 50px 0 26px 0;
+    }
+    @include respond(0, $mobile) {
+      margin: 30px 0 20px 0;
+    }
+  }
+
+  .column:last-child {
+
+    .title {
+      @include respond($mobile) {
+        font-size: 40px;
+      }
+      @include respond(0, $mobile) {
+        font-size: 28px;
+      }
+      font-family: $lato-font;
+      line-height: 1.2;
+      font-weight: bold;
+      position: relative;
+      padding-bottom: 10px;
+
+      &:after {
+        position: absolute;
+        content: '';
+        left: 0;
+        height: 1px;
+        background: $brown-light;
+        right: -9999px;
+        bottom: 0;
+        display: block;
+      }
+
+      span {
+        color: $brown;
+        display: block;
+      }
+    }
+
+    @include respond($mobile) {
+      width: 100%;
+      max-width: 511px;
+      padding-left: 75px;
+    }
+  }
+
+  .swiper-slide_wild {
+    @include respond($mobile) {
+      max-width: 555px;
+    }
+  }
+
+  .swiper-slide_normal {
+    @include respond($mobile) {
+      max-width: 350px;
+    }
+
+    .title {
+      font-weight: bold;
+    }
+  }
+
+  .swiper-slide {
+    position: relative;
+    overflow: hidden;
+    background: $white;
+    display: flex;
+    flex-direction: column;
+    transition: border $transition-delay ease, box-shadow $transition-delay ease;
+
+    @include respond(900px) {
+      height: 410px;
+    }
+    @include respond(0, 900px) {
+      min-height: 410px;
+    }
+
+    .content {
+      padding: 30px;
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+    }
+
+    .image {
+      height: 215px;
+      margin-bottom: 42px;
+      position: relative;
+    }
+
+    .info {
+      display: flex;
+      justify-content: space-between;
+      flex-wrap: wrap;
+    }
+
+    .title {
+      font-size: 21px;
+      font-family: $lato-font;
+      line-height: 1.667;
+      margin-top: 22px;
+      position: relative;
+
+      &:after {
+        content: '';
+        position: absolute;
+        height: 1px;
+        left: -200px;
+        bottom: -5px;
+        right: 59px;
+        background: $brown;
+      }
+    }
+
+    img {
+      max-width: 400px;
+      display: block;
+      clip-path: url(#svgPathMedium);
+      position: relative;
+      z-index: 1;
+      transform: translate(-1px, -1px);
+      pointer-events: none;
+      min-height: 140px;
+      object-fit: cover;
+      width: 100%;
+    }
+
+    .image {
+      height: 140px;
+
+      svg {
+        position: absolute;
+        top: -30px;
+        left: -13px;
+        pointer-events: none;
+        width: 440px;
+        height: 242px;
+      }
+    }
+
+    &:after {
+      content: '';
+      position: absolute;
+      left: 0;
+      right: 0;
+      top: 0;
+      bottom: 0;
+      border: 1px solid #d7a550;
+      opacity: 1;
+      z-index: 1;
+      transition: opacity 180ms ease;
+    }
+
+    .more-link_pointer {
+      margin-top: auto;
+    }
+
+    &:hover {
+      @include respond($mobile) {
+        .more-link_pointer {
+          opacity: 1;
+        }
+        &:after {
+          opacity: 0;
+        }
+        @include respond($mobile) {
+          box-shadow: 19.092px 19.092px 51px 0 rgba(150, 117, 60, 0.2), 9.192px 9.192px 24px 0 rgba(150, 117, 60, 0.11);
+        }
+      }
+    }
+  }
+}

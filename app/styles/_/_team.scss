@@ -2,20 +2,66 @@
 @import "mixins";
 
 section.team {
-  min-height: 831px;
 
-  @include respond($mobile) {
-    margin-top: 135px;
+  &:not(.frontpage-team) {
+    min-height: 831px;
+
+    @include respond($mobile) {
+      margin-top: 135px;
+    }
+    .column:first-child {
+      @include respond(1200px) {
+        max-width: 515px;
+      }
+    }
+
+    .content {
+      @include respond($mobile) {
+        padding: 35px 40px 45px 30px;
+      }
+    }
+
+    @include respond(1200px) {
+      padding-top: 120px;
+    }
   }
+
+  &.frontpage-team {
+    min-height: 727px;
+
+    .swiper-action {
+      @include respond(1044px) {
+        margin-top: 144px;
+      }
+      @include respond(0, 1044px) {
+        margin-top: 20px;
+      }
+    }
+
+    .column:first-child {
+      @include respond(1200px) {
+        max-width: 422px;
+      }
+    }
+
+    .content {
+      @include respond($mobile) {
+        padding: 40px 40px 50px 40px;
+      }
+    }
+
+    @include respond(1200px) {
+      padding-top: 140px;
+    }
+  }
+
   @include respond(0, $mobile) {
     margin-top: 50px;
   }
   @include respond($mobile) {
     background: url(../images/team.png) no-repeat center / cover;
   }
-  @include respond(1200px) {
-    padding-top: 120px;
-  }
+
   @include respond($mobile, 1200px) {
     padding-top: 60px;
   }
@@ -27,14 +73,10 @@ section.team {
   }
 
   .column:first-child {
-
-    @include respond(1200px) {
-      max-width: 515px;
-    }
+    width: 100%;
     @include respond($mobile, 1200px) {
       max-width: 390px;
     }
-    width: 100%;
 
     .text {
       @include respond($mobile) {
@@ -83,11 +125,14 @@ section.team {
     @include respond(0, 600px) {
       flex-direction: column;
     }
+
     .more-link_pointer {
+      margin-top: auto;
       @include respond(0, 600px) {
         display: none;
       }
     }
+
     background: $white;
     box-shadow: 2.121px 2.121px 6px 0 rgba(150, 117, 60, 0.14), 8.485px 8.485px 13px 0 rgba(150, 117, 60, 0.07);
     transition: box-shadow $transition-delay ease, opacity ($transition-delay * 2) ease;
@@ -102,9 +147,6 @@ section.team {
 
     .content {
       background: $white;
-      @include respond($mobile) {
-        padding: 35px 40px 45px 30px;
-      }
       @include respond(0, $mobile) {
         padding: 20px;
       }

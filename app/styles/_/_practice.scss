@@ -182,40 +182,6 @@
       z-index: 1;
     }
 
-    .counter {
-      position: absolute;
-      top: -24px;
-      right: 72px;
-      color: $white;
-      z-index: 1;
-      width: 44px;
-      font-family: $lato-font;
-      font-weight: bold;
-      font-size: 22px;
-      height: 44px;
-      background: $brown;
-      box-shadow: 0 0 0 8px transparentize($brown, .5);
-      border-radius: 50%;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-
-      &:before {
-        content: '';
-        position: absolute;
-        left: -20px;
-        right: 0;
-        top: 0;
-        width: 82px;
-        height: 82px;
-        bottom: 0;
-        margin: auto;
-        border: 1px solid transparentize($brown, .5);
-        border-radius: 50%;
-        display: block;
-      }
-    }
-
     .title {
       @include respond($mobile) {
         font-size: 24px;
@@ -293,8 +259,10 @@
 
   .columns {
     justify-content: space-between;
-    @include respond($mobile) {
-      display: flex;
+    display: flex;
+
+    @include respond(0, $mobile) {
+      flex-direction: column-reverse;
     }
   }
 
@@ -319,7 +287,12 @@
     }
 
     .title {
-      font-size: 35px;
+      @include respond($mobile) {
+        font-size: 35px;
+      }
+      @include respond(0, $mobile) {
+        font-size: 28px;
+      }
       font-family: $lato-font;
       line-height: 1.143;
       font-weight: bold;
@@ -346,52 +319,6 @@
 
   .small-text {
     margin-top: 42px;
-  }
-
-  .numbers {
-    position: relative;
-    margin-top: 72px;
-    padding-left: 16px;
-    letter-spacing: 8px;
-
-    @include respond(0, $mobile) {
-      display: none;
-    }
-
-    .shield {
-      position: absolute;
-      left: -5px;
-      top: 11px;
-      z-index: 2;
-    }
-  }
-
-  .number {
-    font-size: 180px;
-    color: $brown;
-    font-weight: 800;
-    pointer-events: none;
-    user-select: none;
-    position: relative;
-    z-index: 1;
-
-    &-green {
-      background: linear-gradient(206deg, #133055 36%, #047152);
-      -webkit-background-clip: text;
-      -webkit-text-fill-color: transparent;
-    }
-  }
-
-  .number-shadow {
-    font-size: 180px;
-    color: transparentize($brown, .9);
-    font-weight: 800;
-    pointer-events: none;
-    user-select: none;
-    position: absolute;
-    left: 37px;
-    top: 10px;
-    z-index: 0;
   }
 
   .swiper-action {
@@ -589,10 +516,10 @@
 
 .why {
   @include respond($mobile) {
-    padding: 188px 0 140px 0;
+    padding: 188px 0 164px 0;
   }
   @include respond(0, $mobile) {
-    padding: 68px 0 50px 0;
+    padding: 0 0 50px 0;
   }
   position: relative;
 
@@ -626,8 +553,8 @@
   .why-slider_wrapper {
     @include respond($mobile) {
       padding-right: 40px;
+      overflow: hidden;
     }
-    overflow: hidden;
     padding-top: 28px;
     transform: translateY(-28px);
   }
@@ -636,15 +563,21 @@
     @include respond($mobile) {
       display: flex;
     }
+    @include respond(0, $mobile) {
+      display: flex;
+      flex-direction: column-reverse;
+    }
+
   }
 
   .column:first-child {
     @include respond($mobile) {
       margin-left: -15px;
       width: 50%;
-      max-width: 1204px;
+      max-width: 1140px;
       flex: 1;
     }
+
   }
 
   .why-slider {
@@ -654,12 +587,12 @@
       content: '';
       position: absolute;
       height: 170px;
-      @include respond(900px) {
+      @include respond($mobile) {
         left: 0;
         right: -40px;
         border-radius: 0 0 60px 60px;
       }
-      @include respond(0, 900px) {
+      @include respond(0, $mobile) {
         left: -15px;
         right: -15px;
       }
@@ -691,9 +624,16 @@
   }
 
   .column:last-child {
-
+    @include respond(0, $mobile) {
+      margin-bottom: 30px;
+    }
     .title {
-      font-size: 40px;
+      @include respond($mobile) {
+        font-size: 40px;
+      }
+      @include respond(0, $mobile) {
+        font-size: 28px;
+      }
       font-family: $lato-font;
       line-height: 1.2;
       font-weight: bold;
@@ -742,7 +682,7 @@
       font-weight: 300;
       line-height: 1.563;
       max-width: 297px;
-      padding: 0 37px;
+      padding: 0 37px 20px;
     }
 
     .title {

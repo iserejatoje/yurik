@@ -1,5 +1,6 @@
 ### Юридическая инициатива
 
+- [Главная](https://iserejatoje.github.io/yurik/index.html)
 - [Наша команда](https://iserejatoje.github.io/yurik/team.html)
 - [Контакты](https://iserejatoje.github.io/yurik/contacts.html)
 - [Практики и услуги](https://iserejatoje.github.io/yurik/practice.html)
