@@ -11,7 +11,6 @@
     <meta name="keywords" content="юрик">
     <meta name="description" content="юрик">
     <title>Главная &mdash; Юридическая инициатива</title>
-
     <link rel="preload" href="css/app.min.css" as="style" />
     <link rel="preload" href="fonts/Lato-Bold.woff" as="font" crossorigin="anonymous">
     <link rel="preload" href="fonts/Gilroy-Extrabold.woff2" as="font" crossorigin="anonymous">
@@ -171,7 +170,12 @@
 </svg>
 
 <section class="way">
-    <img class="we-sparks" src="images/we-sparks.png" alt="">
+    <picture class="way-bg">
+        <source type="image/webp" srcset="images/way-bg.webp">
+        <source type="image/jpg" srcset="images/way-bg.jpg">
+        <img loading="lazy" src="images/way-bg.jpg" alt="">
+    </picture>
+    <img class="we-sparks" loading="lazy" src="images/we-sparks.png" alt="">
     <div class="container-fluid container-fluid_left">
         <div class="columns">
             <div class="column">
@@ -185,7 +189,7 @@
                     <button class="we-next slider-next" aria-label="Пролистать слайдер вперед"><svg width="23" height="10"><use xlink:href="#more-pointer"></use></svg></button>
                 </div>
                 <div class="numbers pl">
-                    <img width="61" height="71" class="shield" src="images/shield-small.png" alt="">
+                    <img width="61" height="71" loading="lazy" class="shield" src="images/shield-small.png" alt="">
                     <div class="number-medium number-green we-number">01</div>
                     <div class="number-shadow_medium we-number">01</div>
                 </div>
@@ -267,7 +271,7 @@
                         <div class="swiper-wrapper">
                             <div dir="ltr" class="swiper-slide">
                                 <div class="images">
-                                    <img class="shield" src="images/shield.png" alt="">
+                                    <img loading="lazy" class="shield" src="images/shield.png" alt="">
                                     <img class="icon" src="images/12.png" alt="">
                                 </div>
                                 <div class="title">профессиональных <span>юристов</span></div>
@@ -279,7 +283,7 @@
                             </div>
                             <div dir="ltr" class="swiper-slide">
                                 <div class="images">
-                                    <img class="shield" src="images/shield.png" alt="">
+                                    <img loading="lazy" class="shield" src="images/shield.png" alt="">
                                     <img class="icon" src="images/12.png" alt="">
                                 </div>
                                 <div class="title">профессиональных <span>юристов</span></div>
@@ -291,7 +295,7 @@
                             </div>
                             <div dir="ltr" class="swiper-slide">
                                 <div class="images">
-                                    <img class="shield" src="images/shield.png" alt="">
+                                    <img loading="lazy" class="shield" src="images/shield.png" alt="">
                                     <img class="icon" src="images/12.png" alt="">
                                 </div>
                                 <div class="title">профессиональных <span>юристов</span></div>
@@ -303,7 +307,7 @@
                             </div>
                             <div dir="ltr" class="swiper-slide">
                                 <div class="images">
-                                    <img class="shield" src="images/shield.png" alt="">
+                                    <img loading="lazy" class="shield" src="images/shield.png" alt="">
                                     <img class="icon" src="images/12.png" alt="">
                                 </div>
                                 <div class="title">профессиональных <span>юристов</span></div>
@@ -315,7 +319,7 @@
                             </div>
                             <div dir="ltr" class="swiper-slide">
                                 <div class="images">
-                                    <img class="shield" src="images/shield.png" alt="">
+                                    <img loading="lazy" class="shield" src="images/shield.png" alt="">
                                     <img class="icon" src="images/12.png" alt="">
                                 </div>
                                 <div class="title">профессиональных <span>юристов</span></div>
@@ -484,7 +488,7 @@
                                     <picture>
                                         <source type="image/webp" srcset="images/team-dude.webp">
                                         <source type="image/jpg" srcset="images/team-dude.jpg">
-                                        <img class="swiper-lazy" src="images/team-dude.jpg" alt="Баханов Дмитрий Дмитриевич">
+                                        <img loading="lazy" class="swiper-lazy" src="images/team-dude.jpg" alt="Баханов Дмитрий Дмитриевич">
                                     </picture>
                                 </div>
                             </a>
@@ -502,7 +506,7 @@
                                     <picture>
                                         <source type="image/webp" srcset="images/team-dude.webp">
                                         <source type="image/jpg" srcset="images/team-dude.jpg">
-                                        <img class="swiper-lazy" src="images/team-dude.jpg" alt="Баханов Дмитрий Дмитриевич">
+                                        <img loading="lazy" class="swiper-lazy" src="images/team-dude.jpg" alt="Баханов Дмитрий Дмитриевич">
                                     </picture>
                                 </div>
                             </a>
@@ -520,7 +524,7 @@
                                     <picture>
                                         <source type="image/webp" srcset="images/team-dude.webp">
                                         <source type="image/jpg" srcset="images/team-dude.jpg">
-                                        <img class="swiper-lazy" src="images/team-dude.jpg" alt="Баханов Дмитрий Дмитриевич">
+                                        <img loading="lazy" class="swiper-lazy" src="images/team-dude.jpg" alt="Баханов Дмитрий Дмитриевич">
                                     </picture>
                                 </div>
                             </a>
@@ -621,7 +625,7 @@
     <picture class="clients-bg">
         <source type="image/webp" srcset="images/clients-bg.webp">
         <source type="image/png" srcset="images/clients-bg.png">
-        <img src="images/clients-bg.png" alt="">
+        <img loading="lazy" src="images/clients-bg.png" alt="">
     </picture>
     <div class="container block-relative">
         <div class="heading-line fs-40-black"><span>Наши клиенты</span></div>
