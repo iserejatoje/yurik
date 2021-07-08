@@ -362,8 +362,21 @@ section.clients {
 }
 
 section.way {
-  background: url(../images/way-bg.jpg) no-repeat center / cover;
   position: relative;
+
+  .way-bg {
+    position: absolute;
+    left: 0;
+    right: 0;
+    top: 0;
+    bottom: 0;
+    pointer-events: none;
+    object-fit: cover;
+
+    img {
+      height: 100%;
+    }
+  }
 
   @include respond($mobile) {
     padding: 150px 0 100px 0;
