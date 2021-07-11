@@ -69,10 +69,6 @@ section.blog {
     }
   }
 
-  .non-swiper-slide {
-    display: none;
-  }
-
   .swiper-pagination-bullets {
     justify-content: flex-end;
     @include respond($mobile) {

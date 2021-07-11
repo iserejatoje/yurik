@@ -322,6 +322,13 @@ body {
   bottom: auto;
 }
 
+svg[width="0"] {
+  position: absolute;
+  pointer-events: none;
+  z-index: -999;
+  left: -999px;
+}
+
 .container {
   max-width: $container-width;
   padding-left: $container-padding;
@@ -742,7 +749,9 @@ nav {
     padding-bottom: 125px;
   }
   @include respond(0, $mobile) {
-    display: none;
+    &:not(.navigation-service) {
+      display: none;
+    }
   }
 }
 
@@ -761,11 +770,25 @@ nav {
 }
 
 .slider-prev {
-  margin-right: 24px;
+  @include respond($mobile) {
+    margin-right: 24px;
+  }
+  @include respond(0, $mobile) {
+    margin-right: 10px;
+  }
+}
+
+.non-swiper-slide {
+  display: none;
 }
 
 .slider-next {
-  margin-left: 24px;
+  @include respond($mobile) {
+    margin-left: 24px;
+  }
+  @include respond(0, $mobile) {
+    margin-left: 10px;
+  }
 }
 
 .burger {

@@ -234,7 +234,7 @@ section.need {
     padding: 170px 0 150px 0;
   }
   @include respond(0, $mobile) {
-    padding: 50px 0;
+    padding: 50px 0 20px 0;
   }
 
   .heading-line {
@@ -243,10 +243,16 @@ section.need {
 
   .counter {
     right: 58px;
+
+    @include respond(0, $mobile) {
+      display: none;
+    }
   }
 
   .services-slider {
-    margin-top: 70px;
+    @include respond($mobile) {
+      margin-top: 70px;
+    }
     overflow: visible;
   }
 
@@ -286,7 +292,12 @@ section.need {
 
   .content {
     overflow: hidden;
-    padding: 0 30px 30px 30px;
+    @include respond($mobile) {
+      padding: 0 30px 30px 30px;
+    }
+    @include respond(0, $mobile) {
+      padding: 0 20px 20px 20px;
+    }
     max-width: 465px;
     flex: 1;
     display: flex;
@@ -294,9 +305,14 @@ section.need {
   }
 
   .title {
+    @include respond($mobile) {
+      font-size: 24px;
+    }
+    @include respond(0, $mobile) {
+      font-size: 20px;
+    }
     line-height: 1.458;
     font-family: $lato-font;
-    font-size: 24px;
     font-weight: bold;
     display: inline-block;
     position: relative;
@@ -304,6 +320,8 @@ section.need {
     span {
       position: relative;
       padding-bottom: 24px;
+      display: inline-block;
+      margin-bottom: 20px;
     }
 
     span:after {
@@ -327,7 +345,12 @@ section.need {
   }
 
   .swiper-navigation {
-    padding-bottom: 50px;
+    @include respond($mobile) {
+      padding-bottom: 50px;
+    }
+    @include respond(0, $mobile) {
+      padding-bottom: 35px;
+    }
   }
 
   .center {
@@ -335,16 +358,27 @@ section.need {
     justify-content: center;
   }
 
+  .swiper-pages {
+    @include respond(0, $mobile) {
+      display: none;
+    }
+  }
+
   .swiper-slide {
     background: $white;
-    margin-bottom: 40px;
     min-height: 494px;
+
+    @include respond($mobile) {
+      margin-top: 0 !important;
+      margin-bottom: 70px !important;
+    }
+
     display: flex;
     flex-direction: column;
     position: relative;
     transition: box-shadow $transition-delay ease;
 
-    @include respond($mobile){
+    @include respond($mobile) {
       //box-shadow: 2.121px 2.121px 6px 0 rgba(150, 117, 60, 0.14), 8.485px 8.485px 13px 0 rgba(150, 117, 60, 0.07);
       border: 1px solid $brown;
     }
@@ -354,7 +388,7 @@ section.need {
     }
 
     &:hover {
-      @include respond($mobile){
+      @include respond($mobile) {
         //box-shadow: 19.092px 19.092px 51px 0 rgba(150, 117, 60, 0.2), 9.192px 9.192px 24px 0 rgba(150, 117, 60, 0.11);
       }
     }
