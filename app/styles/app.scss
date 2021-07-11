@@ -819,32 +819,33 @@ nav {
 }
 
 .swiper-pagination-bullets {
-
-  &[dir="ltr"] {
-    .swiper-pagination-bullet {
-      &:not(:last-child) {
-        margin-right: 10px;
+  &:not(.custom) {
+    &[dir="ltr"] {
+      .swiper-pagination-bullet {
+        &:not(:last-child) {
+          margin-right: 10px;
+        }
       }
     }
-  }
 
-  &[dir="rtl"] {
-    .swiper-pagination-bullet {
-      &:not(:last-child) {
-        margin-left: 10px;
+    &[dir="rtl"] {
+      .swiper-pagination-bullet {
+        &:not(:last-child) {
+          margin-left: 10px;
+        }
       }
     }
-  }
 
-  .swiper-pagination-bullet {
-    cursor: pointer;
-    width: 30px;
-    height: 15px;
-    border-top: 1px solid transparentize($brown, .5);
-    display: block;
+    .swiper-pagination-bullet {
+      cursor: pointer;
+      width: 30px;
+      height: 15px;
+      border-top: 1px solid transparentize($brown, .5);
+      display: block;
 
-    &-active {
-      border-top: 1px solid $brown;
+      &-active {
+        border-top: 1px solid $brown;
+      }
     }
   }
 }

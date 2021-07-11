@@ -228,34 +228,6 @@ const params = {
     }
 }
 
-const service_params = {
-    paginationUpdate: function (e, paginationEl) {
-        const bullets = document.querySelectorAll('section.services .swiper-pagination-bullet');
-        document.querySelector('section.services .swiper-pages').innerHTML = '';
-        for (let i = 0; i < bullets.length; i++) {
-            document.querySelector('section.services .swiper-pages').innerHTML += '<button class="slider-button">' + (i + 1) + '</button>';
-        }
-
-        const servicePagination = document.body.querySelectorAll('section.services .swiper-pages button')
-        for (let i = 0; i < servicePagination.length; i++) {
-            servicePagination[i].addEventListener('click', function (event) {
-                const slider = document.querySelector('.services-slider').swiper
-                const index = [...event.target.parentElement.children].indexOf(event.target)
-                slider.slideTo(index)
-                event.preventDefault()
-            })
-        }
-
-        const pages = document.querySelectorAll('section.services .slider-button');
-        for (let i = 0; i < bullets.length; i++) {
-            if (bullets[i].hasClass('swiper-pagination-bullet-active')) {
-                pages[i].classList.add('active');
-            }
-        }
-
-    }
-}
-
 new Swiper('.blog-slider:not(.column-1)', {
     breakpoints: {
         0: {
@@ -314,6 +286,34 @@ new Swiper('.blog-slider.column-1', {
     on: params
 })
 
+const service_params = {
+    paginationUpdate: function (e, paginationEl) {
+        const bullets = document.querySelectorAll('section.services .swiper-pagination-bullet');
+        document.querySelector('section.services .swiper-pages').innerHTML = '';
+        for (let i = 0; i < bullets.length; i++) {
+            document.querySelector('section.services .swiper-pages').innerHTML += '<button class="slider-button">' + (i + 1) + '</button>';
+        }
+
+        const servicePagination = document.body.querySelectorAll('section.services .swiper-pages button')
+        for (let i = 0; i < servicePagination.length; i++) {
+            servicePagination[i].addEventListener('click', function (event) {
+                const slider = document.querySelector('.services-slider').swiper
+                const index = [...event.target.parentElement.children].indexOf(event.target)
+                slider.slideTo(index)
+                event.preventDefault()
+            })
+        }
+
+        const pages = document.querySelectorAll('section.services .slider-button');
+        for (let i = 0; i < bullets.length; i++) {
+            if (bullets[i].hasClass('swiper-pagination-bullet-active')) {
+                pages[i].classList.add('active');
+            }
+        }
+
+    }
+}
+
 new Swiper('.services-slider', {
     breakpoints: {
         0: {
@@ -337,7 +337,7 @@ new Swiper('.services-slider', {
         prevEl: '.service-prev',
     },
     pagination: {
-        el: '.services .swiper-pagination',
+        el: 'section.services .swiper-pagination',
         clickable: true
     },
     slidesPerColumnFill: 'row',

@@ -8,12 +8,12 @@ SwiperCore.use([Navigation, Pagination])
 const params = {
     paginationUpdate: function (e, paginationEl) {
         const bullets = document.querySelectorAll('.blog-pagination .swiper-pagination-bullet');
-        document.querySelector('.swiper-pages').innerHTML = ''
+        document.querySelector('.blog .swiper-pages').innerHTML = ''
         for (let i = 0; i < bullets.length; i++) {
-            document.querySelector('.swiper-pages').innerHTML += '<button class="slider-button">' + (i + 1) + '</button>';
+            document.querySelector('.blog .swiper-pages').innerHTML += '<button class="slider-button">' + (i + 1) + '</button>';
         }
 
-        const blogPagination = document.body.querySelectorAll('.swiper-pages button')
+        const blogPagination = document.body.querySelectorAll('.blog .swiper-pages button')
         for (let i = 0; i < blogPagination.length; i++) {
             blogPagination[i].addEventListener('click', function (event) {
                 const slider = document.querySelector('.blog-slider').swiper
@@ -29,16 +29,15 @@ const params = {
                 pages[i].classList.add('active')
             }
         }
-
     }
 }
 
 const service_params = {
     paginationUpdate: function (e, paginationEl) {
-        const bullets = document.querySelectorAll('section.services .swiper-pagination-bullet')
-        document.querySelector('section.services .swiper-pages').innerHTML = ''
+        const bullets = document.querySelectorAll('section.services .swiper-pagination-bullet');
+        document.querySelector('section.services .swiper-pages').innerHTML = '';
         for (let i = 0; i < bullets.length; i++) {
-            document.querySelector('section.services .swiper-pages').innerHTML += '<button class="slider-button">' + (i + 1) + '</button>'
+            document.querySelector('section.services .swiper-pages').innerHTML += '<button class="slider-button">' + (i + 1) + '</button>';
         }
 
         const servicePagination = document.body.querySelectorAll('section.services .swiper-pages button')
@@ -51,10 +50,10 @@ const service_params = {
             })
         }
 
-        const pages = document.querySelectorAll('section.services .slider-button')
+        const pages = document.querySelectorAll('section.services .slider-button');
         for (let i = 0; i < bullets.length; i++) {
             if (bullets[i].hasClass('swiper-pagination-bullet-active')) {
-                pages[i].classList.add('active')
+                pages[i].classList.add('active');
             }
         }
 
@@ -213,13 +212,11 @@ function filterServiceSlider(filterName) {
 
     new Swiper('.services-slider', {
         on: service_params,
-        slidesPerView: 2,
-        spaceBetween: 30,
         breakpoints: {
             0: {
                 slidesPerView: 1,
                 spaceBetween: 20,
-                slidesPerColumn: 2
+                slidesPerColumn: 1
             },
             1024: {
                 slidesPerView: 2,
@@ -227,14 +224,14 @@ function filterServiceSlider(filterName) {
                 spaceBetween: 30,
             },
             1366: {
-                slidesPerView: 3,
+                slidesPerView: 2,
                 slidesPerColumn: 2,
                 spaceBetween: 30,
             }
         },
         slidesPerColumnFill: 'row',
         pagination: {
-            el: '.services-slider .swiper-pagination',
+            el: 'section.services .swiper-pagination',
             clickable: true
         },
         navigation: {
