@@ -6,23 +6,29 @@ section.blog {
   overflow: hidden;
   position: relative;
 
+  &:not(.blog-in_service) {
+    background: url(../images/blog-bg.png) no-repeat center / cover;
+  }
+
   @include respond($mobile) {
-    &:not(.blog-in_article) {
+    &:not(.blog-in_article):not(.blog-in_service) {
       padding-top: 174px;
+    }
+    &.blog-in_service {
+      padding-top: 22px;
     }
     &.blog-in_article {
       padding-top: 110px;
     }
   }
   @include respond(0, $mobile) {
-    &:not(.blog-in_article) {
+    &:not(.blog-in_article):not(.blog-in_service) {
       padding-top: 44px;
     }
     &.blog-in_article {
       padding-bottom: 45px;
     }
   }
-  background: url(../images/blog-bg.png) no-repeat center / cover;
 
   .blog-slider_wrapper {
     position: relative;
@@ -44,50 +50,6 @@ section.blog {
   .swiper-container-multirow-column {
     height: 940px;
     padding-bottom: 65px;
-  }
-
-  .swiper-navigation {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    padding-top: 33px;
-
-    @include respond($mobile) {
-      padding-bottom: 125px;
-    }
-    @include respond(0, $mobile) {
-      display: none;
-    }
-  }
-
-  .swiper-pages {
-    display: flex;
-  }
-
-  .swiper-pages {
-    button:not(:first-child),
-    button:not(:last-child) {
-      margin: 0 7px;
-    }
-  }
-
-  .slider-prev {
-    margin-right: 24px;
-  }
-
-  .slider-next {
-    margin-left: 24px;
-  }
-
-  .slider-button {
-    color: $brown;
-    transition: color $transition-delay ease, background $transition-delay ease;
-    font-size: 20px;
-    font-weight: 600;
-
-    &:hover {
-      color: $white;
-    }
   }
 
   .swiper-container {
@@ -196,53 +158,54 @@ section.blog {
     margin-right: 86px;
   }
 
-  .filter {
-    padding-bottom: 14px;
+}
 
+.filter {
+  padding-bottom: 14px;
+
+  @include respond(0, $mobile) {
+    padding-top: 40px;
+  }
+
+  a {
     @include respond(0, $mobile) {
-      padding-top: 40px;
+      margin-bottom: 40px;
+      margin-right: 24px;
+    }
+    @include respond($mobile) {
+      margin-right: 34px;
+    }
+    font-family: $lato-font;
+    font-weight: bold;
+    font-size: 16px;
+    display: inline-block;
+    text-transform: uppercase;
+    text-decoration: none;
+    color: $dark;
+    letter-spacing: 1px;
+    position: relative;
+    transition: color $transition-delay ease;
+
+    &:hover {
+      color: $brown-light;
     }
 
-    a {
-      @include respond(0, $mobile) {
-        margin-bottom: 40px;
-        margin-right: 24px;
-      }
-      @include respond($mobile) {
-        margin-right: 34px;
-      }
-      font-family: $lato-font;
-      font-weight: bold;
-      font-size: 16px;
-      display: inline-block;
-      text-transform: uppercase;
-      text-decoration: none;
-      color: $dark;
-      letter-spacing: 1px;
-      position: relative;
-      transition: color $transition-delay ease;
+    &.active {
+      color: $brown-light;
 
-      &:hover {
-        color: $brown-light;
-      }
-
-      &.active {
-        color: $brown-light;
-
-        &:after {
-          content: '';
-          position: absolute;
-          @include respond($mobile) {
-            bottom: -18px;
-          }
-          @include respond(0, $mobile) {
-            bottom: -10px;
-          }
-          left: -4px;
-          right: -4px;
-          height: 2px;
-          background: $brown-light;
+      &:after {
+        content: '';
+        position: absolute;
+        @include respond($mobile) {
+          bottom: -18px;
         }
+        @include respond(0, $mobile) {
+          bottom: -10px;
+        }
+        left: -4px;
+        right: -4px;
+        height: 2px;
+        background: $brown-light;
       }
     }
   }

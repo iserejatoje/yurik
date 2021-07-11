@@ -1,5 +1,6 @@
 import Swiper from 'swiper'
-import SwiperCore, { Navigation, Pagination } from 'swiper/core'
+import SwiperCore, {Navigation, Pagination} from 'swiper/core'
+
 SwiperCore.use([Navigation, Pagination])
 
 new Swiper('.team-slider', {
@@ -29,7 +30,7 @@ new Swiper('.team-slider', {
     }
 })
 
-Element.prototype.hasClass = function(className) {
+Element.prototype.hasClass = function (className) {
     return this.className && new RegExp("(^|\\s)" + className + "(\\s|$)").test(this.className);
 };
 
@@ -202,12 +203,12 @@ new Swiper('.we-slider', {
 const params = {
     paginationUpdate: function (e, paginationEl) {
         const bullets = document.querySelectorAll('.blog-pagination .swiper-pagination-bullet');
-        document.querySelector('.swiper-pages').innerHTML = '';
+        document.querySelector('.blog .swiper-pages').innerHTML = '';
         for (let i = 0; i < bullets.length; i++) {
-            document.querySelector('.swiper-pages').innerHTML += '<button class="slider-button">' + (i + 1) + '</button>';
+            document.querySelector('.blog .swiper-pages').innerHTML += '<button class="slider-button">' + (i + 1) + '</button>';
         }
 
-        const blogPagination = document.body.querySelectorAll('.swiper-pages button')
+        const blogPagination = document.body.querySelectorAll('.blog .swiper-pages button')
         for (let i = 0; i < blogPagination.length; i++) {
             blogPagination[i].addEventListener('click', function (event) {
                 const slider = document.querySelector('.blog-slider').swiper
@@ -215,6 +216,41 @@ const params = {
                 slider.slideTo(index)
                 event.preventDefault()
             })
+        }
+
+        const pages = document.querySelectorAll('.blog .slider-button');
+        for (let i = 0; i < bullets.length; i++) {
+            if (bullets[i].hasClass('swiper-pagination-bullet-active')) {
+                pages[i].classList.add('active');
+            }
+        }
+
+    }
+}
+
+const service_params = {
+    paginationUpdate: function (e, paginationEl) {
+        const bullets = document.querySelectorAll('section.services .swiper-pagination-bullet');
+        document.querySelector('section.services .swiper-pages').innerHTML = '';
+        for (let i = 0; i < bullets.length; i++) {
+            document.querySelector('section.services .swiper-pages').innerHTML += '<button class="slider-button">' + (i + 1) + '</button>';
+        }
+
+        const servicePagination = document.body.querySelectorAll('section.services .swiper-pages button')
+        for (let i = 0; i < servicePagination.length; i++) {
+            servicePagination[i].addEventListener('click', function (event) {
+                const slider = document.querySelector('.services-slider').swiper
+                const index = [...event.target.parentElement.children].indexOf(event.target)
+                slider.slideTo(index)
+                event.preventDefault()
+            })
+        }
+
+        const pages = document.querySelectorAll('section.services .slider-button');
+        for (let i = 0; i < bullets.length; i++) {
+            if (bullets[i].hasClass('swiper-pagination-bullet-active')) {
+                pages[i].classList.add('active');
+            }
         }
 
     }
@@ -251,6 +287,7 @@ new Swiper('.blog-slider:not(.column-1)', {
 })
 
 new Swiper('.blog-slider.column-1', {
+
     breakpoints: {
         0: {
             slidesPerView: 1,
@@ -275,4 +312,34 @@ new Swiper('.blog-slider.column-1', {
         prevEl: '.blog-prev',
     },
     on: params
+})
+
+new Swiper('.services-slider', {
+    breakpoints: {
+        0: {
+            slidesPerView: 1,
+            spaceBetween: 20,
+            slidesPerColumn: 1,
+        },
+        1024: {
+            slidesPerView: 2,
+            slidesPerColumn: 2,
+            spaceBetween: 30,
+        },
+        1366: {
+            slidesPerView: 2,
+            slidesPerColumn: 2,
+            spaceBetween: 30,
+        }
+    },
+    navigation: {
+        nextEl: '.service-next',
+        prevEl: '.service-prev',
+    },
+    pagination: {
+        el: '.services .swiper-pagination',
+        clickable: true
+    },
+    slidesPerColumnFill: 'row',
+    on: service_params
 })

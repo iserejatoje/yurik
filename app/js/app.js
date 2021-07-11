@@ -23,6 +23,13 @@ const params = {
             })
         }
 
+        const pages = document.querySelectorAll('.blog .slider-button');
+        for (let i = 0; i < bullets.length; i++) {
+            if (bullets[i].hasClass('swiper-pagination-bullet-active')) {
+                pages[i].classList.add('active');
+            }
+        }
+
     }
 }
 
@@ -175,7 +182,6 @@ for (let i = 0; i < formInputs.length; i++) {
         event.preventDefault()
     })
     formInputs[i].addEventListener('blur', function (event) {
-        console.log(event.target.value)
         if (event.target.value === '') {
             event.target.parentNode.classList.remove('active')
         }

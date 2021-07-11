@@ -71,7 +71,9 @@ html {
   }
 
   @include respond(0, $mobile) {
-    display: none;
+    &.invisible {
+      display: none;
+    }
   }
 
   .shield {
@@ -114,8 +116,46 @@ html {
   }
 }
 
+.number-small {
+  @include respond($mobile) {
+    font-size: 100px;
+  }
+  @include respond(0, $mobile) {
+    font-size: 80px;
+  }
+  color: $brown;
+  font-weight: 800;
+  pointer-events: none;
+  user-select: none;
+  position: relative;
+  z-index: 1;
+
+  &-green {
+    background: linear-gradient(206deg, #133055 36%, #047152);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+  }
+}
+
 .number-shadow_medium {
   font-size: 150px;
+  color: transparentize($brown, .9);
+  font-weight: 800;
+  pointer-events: none;
+  user-select: none;
+  position: absolute;
+  left: 37px;
+  top: 10px;
+  z-index: 0;
+}
+
+.number-shadow_small {
+  @include respond($mobile) {
+    font-size: 100px;
+  }
+  @include respond(0, $mobile) {
+    font-size: 80px;
+  }
   color: transparentize($brown, .9);
   font-weight: 800;
   pointer-events: none;
@@ -291,6 +331,7 @@ body {
 }
 
 .seo-title {
+  text-decoration: none;
   text-transform: uppercase;
   color: $brown;
   font-size: 16px;
@@ -680,11 +721,56 @@ nav {
   }
 }
 
+.slider-button {
+  color: $brown;
+  transition: color $transition-delay ease, background $transition-delay ease;
+  font-size: 20px;
+  font-weight: 600;
+
+  &:hover {
+    color: $white;
+  }
+}
+
+.swiper-navigation {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding-top: 33px;
+
+  @include respond($mobile) {
+    padding-bottom: 125px;
+  }
+  @include respond(0, $mobile) {
+    display: none;
+  }
+}
+
+.swiper-pages {
+  display: flex;
+
+  .active {
+    background: $brown;
+    color: $white;
+  }
+
+  button:not(:first-child),
+  button:not(:last-child) {
+    margin: 0 7px;
+  }
+}
+
+.slider-prev {
+  margin-right: 24px;
+}
+
+.slider-next {
+  margin-left: 24px;
+}
+
 .burger {
   width: 35px;
   height: 22px;
-  flex-direction: column;
-  justify-content: space-between;
   cursor: pointer;
   margin-left: 15px;
   margin-right: 15px;
@@ -694,12 +780,16 @@ nav {
   }
 
   @include respond(0, $mobile) {
-    display: flex;
+    display: block;
   }
 
   .burger-line {
     height: 1px;
     width: 100%;
+    &:not(:last-child) {
+      margin-bottom: 10px;
+    }
+    display: block;
     background: $dark;
     transition: background $transition-delay ease;
   }
@@ -1057,7 +1147,7 @@ blockquote {
     font-size: 16px;
   }
   @include respond(0, $mobile) {
-    font-size: 14px;
+    font-size: 12px;
   }
   line-height: 1.875;
   text-transform: uppercase;
@@ -1077,10 +1167,22 @@ blockquote {
     max-width: 190px;
   }
 
+  &-other {
+    background: $brown;
+    color: $white;
+    max-width: 300px;
+  }
+
   &-request {
     background: $brown;
     color: $white;
     max-width: 210px;
+  }
+
+  &-wild {
+    background: $brown;
+    color: $white;
+    max-width: 290px;
   }
 
   &-clear {
@@ -1152,10 +1254,10 @@ blockquote {
   font-family: $lato-font;
   color: $brown;
   @include respond($mobile) {
-    font-size: 16px;
+    font-size: 15px;
   }
   @include respond(0, $mobile) {
-    font-size: 14px;
+    font-size: 13px;
   }
   font-weight: bold;
   text-decoration: none;
@@ -1168,6 +1270,7 @@ blockquote {
   svg {
     fill: $brown;
     margin-left: 10px;
+    transform: translateY(-1px);
   }
 }
 

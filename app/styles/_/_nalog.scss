@@ -1,0 +1,362 @@
+@import "variables";
+@import "mixins";
+
+.main-in_service {
+  h1 {
+    @include respond($mobile) {
+      font-size: 42px;
+    }
+    @include respond(0, $mobile) {
+      font-size: 24px;
+    }
+  }
+}
+
+section.blog-in_service {
+  .heading-line {
+    span {
+      padding-bottom: 30px;
+    }
+  }
+
+  .blog-text {
+    @include respond($mobile) {
+      font-size: 21px;
+      letter-spacing: 2px;
+      padding-top: 58px;
+      padding-bottom: 6px;
+    }
+    @include respond(0, $mobile) {
+      font-size: 18px;
+      margin-bottom: 24px;
+      padding-top: 28px;
+    }
+    font-weight: 300;
+    line-height: 1.476;
+    max-width: 550px;
+  }
+}
+
+.team-in_service {
+  .heading-line {
+    span {
+      padding-bottom: 20px;
+
+      &:after {
+        right: 0;
+      }
+    }
+  }
+}
+
+.why-sparks {
+  position: absolute;
+  pointer-events: none;
+  left: 502px;
+  top: 58px;
+}
+
+section.need {
+  background: url(../images/need.jpg) no-repeat center / cover;
+  @include respond($mobile) {
+    padding: 90px 0 135px 0;
+  }
+  @include respond(0, $mobile) {
+    padding: 40px 0 50px 0;
+  }
+
+  .heading-line {
+    span {
+      @include respond($mobile) {
+        padding-bottom: 30px;
+      }
+      @include respond(0, $mobile) {
+        padding-bottom: 12px;
+      }
+    }
+
+    span:after {
+      right: 0;
+    }
+  }
+
+  .warning {
+    @include respond($mobile) {
+      font-size: 21px;
+    }
+    @include respond(0, $mobile) {
+      font-size: 18px;
+    }
+    line-height: 1.476;
+    font-weight: 600;
+    padding-top: 40px;
+    letter-spacing: 1px;
+    max-width: 700px;
+    margin-bottom: 53px;
+
+    span {
+      padding-bottom: 25px;
+      position: relative;
+
+      &:before {
+        content: '';
+        position: absolute;
+        right: 0;
+        left: -999px;
+        height: 1px;
+        background: $brown;
+        bottom: 0;
+      }
+    }
+  }
+
+  ul {
+    max-width: 1060px;
+    margin: 0;
+    padding: 50px 0 0;
+    list-style: none;
+    @include respond($mobile) {
+      font-size: 21px;
+    }
+    @include respond(0, $mobile) {
+      font-size: 16px;
+    }
+    font-weight: 300;
+    line-height: 1.476;
+
+    li {
+      padding-left: 22px;
+      letter-spacing: 1px;
+      position: relative;
+
+      &:not(:last-child) {
+        margin-bottom: 35px;
+      }
+
+      &:before {
+        content: '';
+        position: absolute;
+        left: 1px;
+        top: 10px;
+        background: url(../sprites/app.svg#pointer-brown) no-repeat center;
+        width: 9px;
+        height: 8px;
+      }
+    }
+  }
+}
+
+.how-work {
+  background: url(../images/need.jpg) no-repeat center / cover;
+  min-height: 989px;
+  position: relative;
+
+  @include respond($mobile) {
+    padding: 120px 0 135px 0;
+    min-height: 989px;
+  }
+
+  .work-number {
+    transform: translate(18px, 13px);
+  }
+
+  .grid {
+    @include respond($mobile) {
+      padding-top: 92px;
+    }
+    @include respond(0, $mobile) {
+      padding-top: 40px;
+    }
+    display: flex;
+    flex-wrap: wrap;
+    padding-bottom: 14px;
+
+    .item {
+      &:nth-child(1),
+      &:nth-child(2) {
+        @include respond($mobile) {
+          margin-bottom: 45px;
+          padding-right: 40px;
+        }
+        @include respond(0, $mobile) {
+          margin-bottom: 25px;
+        }
+      }
+
+      @include respond($mobile) {
+        width: 50%;
+      }
+      @include respond(0, $mobile) {
+        width: 100%;
+      }
+    }
+
+    p {
+      font-size: 16px;
+      line-height: 1.625;
+      font-weight: 300;
+      letter-spacing: .8px;
+      max-width: 490px;
+    }
+  }
+
+  .shield {
+    z-index: 1 !important;
+  }
+
+  @include respond(0, $mobile) {
+    padding: 40px 0 50px 0;
+  }
+
+  .sparks {
+    position: absolute;
+    z-index: 1;
+    left: 168px;
+    top: -127px;
+    pointer-events: none;
+
+    @include respond(0, 1366px) {
+      display: none;
+    }
+  }
+
+}
+
+.heading-service {
+  @include respond($mobile) {
+    display: flex;
+    align-items: center;
+  }
+}
+
+.services {
+  @include respond($mobile) {
+    padding: 170px 0 150px 0;
+  }
+  @include respond(0, $mobile) {
+    padding: 50px 0;
+  }
+
+  .heading-line {
+    margin-right: 72px;
+  }
+
+  .counter {
+    right: 58px;
+  }
+
+  .services-slider {
+    margin-top: 70px;
+    overflow: visible;
+  }
+
+  .button {
+    margin-top: auto;
+    font-size: 15px;
+  }
+
+  .image {
+    height: 250px;
+    margin-bottom: 18px;
+    position: relative;
+    overflow: hidden;
+
+    svg {
+      position: absolute;
+      top: -2px;
+      left: -13px;
+      pointer-events: none;
+      width: 440px;
+      height: 242px;
+    }
+
+    img {
+      max-width: 400px;
+      display: block;
+      clip-path: url(#svgPathLarge);
+      position: relative;
+      z-index: 1;
+      transform: translate(-1px, -3px);
+      pointer-events: none;
+      object-fit: cover;
+      width: 100%;
+      height: 100%;
+    }
+  }
+
+  .content {
+    overflow: hidden;
+    padding: 0 30px 30px 30px;
+    max-width: 465px;
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+  }
+
+  .title {
+    line-height: 1.458;
+    font-family: $lato-font;
+    font-size: 24px;
+    font-weight: bold;
+    display: inline-block;
+    position: relative;
+
+    span {
+      position: relative;
+      padding-bottom: 24px;
+    }
+
+    span:after {
+      content: '';
+      position: absolute;
+      right: 0;
+      left: -999px;
+      background: $brown;
+      height: 1px;
+      display: block;
+      bottom: 0;
+    }
+  }
+
+  .swiper-pagination {
+    display: none !important;
+  }
+
+  .grid {
+    overflow: hidden;
+  }
+
+  .swiper-navigation {
+    padding-bottom: 50px;
+  }
+
+  .center {
+    display: flex;
+    justify-content: center;
+  }
+
+  .swiper-slide {
+    background: $white;
+    margin-bottom: 40px;
+    min-height: 494px;
+    display: flex;
+    flex-direction: column;
+    position: relative;
+    transition: box-shadow $transition-delay ease;
+
+    @include respond($mobile){
+      //box-shadow: 2.121px 2.121px 6px 0 rgba(150, 117, 60, 0.14), 8.485px 8.485px 13px 0 rgba(150, 117, 60, 0.07);
+      border: 1px solid $brown;
+    }
+
+    @include respond(0, $mobile) {
+      border: 1px solid $brown;
+    }
+
+    &:hover {
+      @include respond($mobile){
+        //box-shadow: 19.092px 19.092px 51px 0 rgba(150, 117, 60, 0.2), 9.192px 9.192px 24px 0 rgba(150, 117, 60, 0.11);
+      }
+    }
+  }
+}

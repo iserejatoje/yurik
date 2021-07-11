@@ -1,6 +1,48 @@
 @import "variables";
 @import "mixins";
 
+.team-in_service {
+  .button {
+    max-width: 290px;
+    margin-top: 35px;
+  }
+
+  .swiper-action {
+    @include respond($mobile) {
+      margin-top: 88px !important;
+    }
+    @include respond(0, $mobile) {
+      margin-top: 30px !important;
+    }
+  }
+
+  .more-link_pointer {
+    opacity: 1 !important;
+    display: inline-flex !important;
+    margin-left: 0;
+    @include respond($mobile) {
+      margin-top: 0 !important;
+    }
+    @include respond(0, $mobile) {
+      margin-top: 28px !important;
+    }
+  }
+
+  .swiper-slide {
+    min-height: 408px;
+
+    .button {
+      font-weight: 400 !important;
+    }
+
+    .image {
+      @include respond($mobile) {
+        width: 200px;
+      }
+    }
+  }
+}
+
 section.team {
 
   &:not(.frontpage-team) {
@@ -9,6 +51,7 @@ section.team {
     @include respond($mobile) {
       margin-top: 135px;
     }
+
     .column:first-child {
       @include respond(1200px) {
         max-width: 515px;
@@ -46,7 +89,7 @@ section.team {
 
     .content {
       @include respond($mobile) {
-        padding: 40px 40px 50px 40px;
+        padding: 40px;
       }
     }
 
@@ -58,8 +101,11 @@ section.team {
   @include respond(0, $mobile) {
     margin-top: 50px;
   }
-  @include respond($mobile) {
-    background: url(../images/team.png) no-repeat center / cover;
+
+  &:not(.team-in_service) {
+    @include respond($mobile) {
+      background: url(../images/team.png) no-repeat center / cover;
+    }
   }
 
   @include respond($mobile, 1200px) {
@@ -81,14 +127,14 @@ section.team {
     .text {
       @include respond($mobile) {
         font-size: 21px;
-        padding-top: 25px;
+        padding-top: 30px;
+        letter-spacing: 2px;
       }
       @include respond(0, $mobile) {
         font-size: 16px;
         padding-top: 12px;
       }
       line-height: 1.429;
-      letter-spacing: 2px;
       font-weight: 300;
 
       @include respond($mobile) {

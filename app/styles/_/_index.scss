@@ -21,15 +21,17 @@
   }
 }
 
-.sparks {
-  position: absolute;
-  z-index: 1;
-  left: 54px;
-  top: 91px;
-  pointer-events: none;
+.frontpage {
+  .main .sparks {
+    position: absolute;
+    z-index: 1;
+    left: 54px;
+    top: 91px;
+    pointer-events: none;
 
-  @include respond(0, 1366px) {
-    display: none;
+    @include respond(0, 1366px) {
+      display: none;
+    }
   }
 }
 
@@ -73,9 +75,12 @@
 
   .buttons {
     display: flex;
-    padding-top: 40px;
     @include respond(0, $mobile) {
       flex-direction: column;
+      padding-top: 28px;
+    }
+    @include respond($mobile) {
+      padding-top: 40px;
     }
 
     .button:first-child {
@@ -83,7 +88,7 @@
         margin-right: 20px;
       }
       @include respond(0, $mobile) {
-        margin-bottom: 18px;
+        margin-bottom: 14px;
       }
     }
   }
@@ -91,6 +96,7 @@
   .annotation {
     @include respond($mobile) {
       font-size: 20px;
+      letter-spacing: 2px;
     }
     @include respond(0, $mobile) {
       font-size: 16px;
@@ -99,7 +105,6 @@
     color: $white;
     max-width: 410px;
     padding-top: 24px;
-    letter-spacing: 2px;
     line-height: 1.5;
   }
 }
@@ -113,7 +118,7 @@ section.main {
     padding-top: 105px;
   }
   @include respond(0, $mobile) {
-    padding-top: 135px;
+    padding-top: 120px;
     padding-bottom: 40px;
   }
   @include respond(0, $mobile) {

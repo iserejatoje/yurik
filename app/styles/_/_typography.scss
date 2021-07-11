@@ -22,6 +22,37 @@
     }
   }
 
+  &.fs-40-black-right {
+    @include respond($mobile) {
+      font-size: 40px;
+    }
+    @include respond(0, $mobile) {
+      font-size: 28px;
+    }
+    span {
+      padding-bottom: 25px;
+
+      &:after {
+        right: -999px;
+        left: 0;
+      }
+    }
+  }
+
+  &.fs-36-black {
+    @include respond($mobile) {
+      font-size: 36px;
+    }
+    @include respond(0, $mobile) {
+      font-size: 28px;
+    }
+    span {
+      padding-bottom: 21px;
+      &:after {
+        right: 0;
+      }
+    }
+  }
 
   &.r-pd0 {
     span {

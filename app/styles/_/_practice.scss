@@ -527,6 +527,22 @@
     padding-bottom: 44px;
   }
 
+  &.why-in_service {
+    .icon {
+      z-index: 2;
+    }
+
+    .swiper-action {
+      padding-top: 44px;
+    }
+  }
+
+  &:not(.why-in_service) {
+    .icon {
+      z-index: 1;
+    }
+  }
+
   .images {
     min-height: 150px;
     position: relative;
@@ -535,7 +551,6 @@
       position: absolute;
       left: 85px;
       bottom: 0;
-      z-index: 1;
     }
   }
 
@@ -608,7 +623,7 @@
       padding-bottom: 62px;
     }
     @include respond(0, $mobile) {
-      padding-bottom: 30px;
+      //padding-bottom: 30px;
     }
   }
 
