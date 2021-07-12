@@ -310,7 +310,9 @@
 }
 
 .sud-team {
-  padding-bottom: 70px;
+  @include respond($mobile) {
+    padding-bottom: 70px;
+  }
 }
 
 .examples {
