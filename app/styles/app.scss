@@ -137,8 +137,46 @@ html {
   }
 }
 
+.number-xs {
+  @include respond($mobile) {
+    font-size: 70px;
+  }
+  @include respond(0, $mobile) {
+    font-size: 50px;
+  }
+  color: $brown;
+  font-weight: 800;
+  pointer-events: none;
+  user-select: none;
+  position: relative;
+  z-index: 1;
+
+  &.number-green {
+    background: linear-gradient(183deg, #133055 36%, #047152);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+  }
+}
+
 .number-shadow_medium {
   font-size: 150px;
+  color: transparentize($brown, .9);
+  font-weight: 800;
+  pointer-events: none;
+  user-select: none;
+  position: absolute;
+  left: 37px;
+  top: 10px;
+  z-index: 0;
+}
+
+.number-shadow_xs{
+  @include respond($mobile) {
+    font-size: 70px;
+  }
+  @include respond(0, $mobile) {
+    font-size: 50px;
+  }
   color: transparentize($brown, .9);
   font-weight: 800;
   pointer-events: none;
@@ -771,7 +809,7 @@ nav {
 
 .slider-prev {
   @include respond($mobile) {
-    margin-right: 24px;
+    margin-right: 10px;
   }
   @include respond(0, $mobile) {
     margin-right: 10px;
@@ -784,7 +822,7 @@ nav {
 
 .slider-next {
   @include respond($mobile) {
-    margin-left: 24px;
+    margin-left: 10px;
   }
   @include respond(0, $mobile) {
     margin-left: 10px;
@@ -974,7 +1012,7 @@ blockquote {
   padding-top: 10px;
 
   button:first-child {
-    margin-right: 12px;
+    margin-right: 10px;
   }
 }
 

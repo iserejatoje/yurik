@@ -143,17 +143,17 @@ section.blog {
     }
   }
 
-  .heading-blog {
-    @include respond($mobile) {
-      display: flex;
-      align-items: flex-end;
-    }
-  }
-
   .large-heading {
     margin-right: 86px;
   }
 
+}
+
+.heading-blog {
+  @include respond($mobile) {
+    display: flex;
+    align-items: flex-end;
+  }
 }
 
 .filter {

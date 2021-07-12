@@ -96,7 +96,7 @@
   .annotation {
     @include respond($mobile) {
       font-size: 20px;
-      letter-spacing: 2px;
+      letter-spacing: 1.8px;
     }
     @include respond(0, $mobile) {
       font-size: 16px;

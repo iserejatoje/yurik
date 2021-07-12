@@ -257,6 +257,49 @@ for (let i = 0; i < blogFilter.length; i++) {
     })
 }
 
+const loadMore = document.querySelectorAll('.load-more')
+for (let i = 0; i < loadMore.length; i++) {
+    loadMore[i].addEventListener('click', function (event) {
+        document.querySelector('.read').style.display = 'block';
+        event.target.style.display = 'none';
+        event.preventDefault()
+    })
+}
+
+function index(el) {
+    if (!el) return -1;
+    let i = 0;
+    do {
+        i++;
+    } while (el = el.previousElementSibling);
+    return i;
+}
+
+const exampleFilter = document.querySelectorAll('.filter.example a')
+for (let i = 0; i < exampleFilter.length; i++) {
+    exampleFilter[i].addEventListener('click', function (event) {
+
+        Array.prototype.forEach.call(exampleFilter, function (el, i) {
+            el.classList.remove('active')
+        })
+
+        event.target.classList.add('active')
+
+        const pages = document.querySelectorAll('.pages .page')
+
+        let sibling_element = Array.prototype.filter.call(pages[index(event.target) - 1].parentNode.children, function (child) {
+            return child !== pages[index(event.target) - 1];
+        });
+
+        for (let i = 0; i < sibling_element.length; i++) {
+            sibling_element[i].style.display = 'none';
+        }
+
+        pages[index(event.target) - 1].style.display = 'block';
+        event.preventDefault()
+    })
+}
+
 const serviceFilter = document.querySelectorAll('.filter.service a')
 for (let i = 0; i < serviceFilter.length; i++) {
     serviceFilter[i].addEventListener('click', function (event) {

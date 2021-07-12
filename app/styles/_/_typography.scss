@@ -54,6 +54,24 @@
     }
   }
 
+  &.fs-36-colored {
+    line-height: 1.389;
+
+    @include respond($mobile) {
+      font-size: 36px;
+    }
+    @include respond(0, $mobile) {
+      font-size: 25px;
+    }
+    span {
+      color: $brown;
+      padding-bottom: 21px;
+      &:after {
+        right: 0;
+      }
+    }
+  }
+
   &.r-pd0 {
     span {
       &:after {
@@ -201,7 +219,7 @@ h1 {
   }
   font-weight: 300;
   line-height: 1.429;
-  letter-spacing: 1px;
+  //letter-spacing: 1px;
 }
 
 .light-21 {
