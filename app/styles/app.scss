@@ -170,7 +170,7 @@ html {
   z-index: 0;
 }
 
-.number-shadow_xs{
+.number-shadow_xs {
   @include respond($mobile) {
     font-size: 70px;
   }
@@ -847,9 +847,11 @@ nav {
   .burger-line {
     height: 1px;
     width: 100%;
+
     &:not(:last-child) {
       margin-bottom: 10px;
     }
+
     display: block;
     background: $dark;
     transition: background $transition-delay ease;
@@ -1444,4 +1446,86 @@ blockquote {
 .swiper-slide {
   color: $dark;
   text-decoration: none;
+}
+
+.menu {
+  position: fixed;
+  display: none;
+  left: 0;
+  z-index: 10000;
+  right: 0;
+  top: 0;
+  bottom: 0;
+  background: linear-gradient(350deg, #022635, #022635, #003e62, #003d6a);
+
+  .container {
+    height: 100%;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    padding-top: 50px;
+  }
+
+  .menu-content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  nav {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  svg {
+    fill: $brown;
+    margin-right: 6px;
+  }
+
+  nav {
+    margin: 20px 0;
+  }
+
+  .links {
+    display: flex;
+    margin: 20px 0;
+    flex-direction: column;
+
+    a {
+      font-size: 18px;
+    }
+  }
+
+  .menu {
+    a {
+      font-size: 19px;
+      text-decoration: none;
+      margin: 5px 0;
+    }
+  }
+
+  a {
+    color: $white;
+    text-decoration: none;
+  }
+
+  .menu-close_button {
+    background: transparent;
+    padding: 0;
+    border: none;
+    cursor: pointer;
+    position: absolute;
+    right: 0;
+    top: 0;
+    width: 55px;
+    height: 55px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    svg {
+      fill: $white;
+    }
+  }
 }

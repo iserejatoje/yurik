@@ -160,6 +160,14 @@ section.need {
     transform: translate(18px, 13px);
   }
 
+  &.family-work {
+    @include respond($mobile) {
+      .grid {
+        padding-top: 55px !important;
+      }
+    }
+  }
+
   .grid {
     @include respond($mobile) {
       padding-top: 92px;

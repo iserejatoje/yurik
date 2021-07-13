@@ -8,13 +8,22 @@
   }
 }
 
+.fs-38 {
+  @include respond($mobile) {
+    font-size: 38px !important;
+    line-height: 1.333 !important;
+  }
+}
+
 .download-button {
   max-width: 248px !important;
 }
 
 .why-in_service {
   .why-slider:before {
-    border-radius: 0 0 60px 0;
+    @include respond(900px) {
+      border-radius: 0 0 60px 0;
+    }
   }
 }
 
@@ -261,7 +270,7 @@
     font-weight: 300;
     line-height: 1.556;
     max-width: 248px;
-    letter-spacing: 2px;
+    letter-spacing: 1.2px;
   }
 
   .icons {

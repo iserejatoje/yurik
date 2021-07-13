@@ -1,0 +1,223 @@
+@import "variables";
+@import "mixins";
+
+.family-service {
+  h1 {
+    max-width: 400px !important;
+  }
+
+  @include respond($mobile) {
+    padding-top: 122px !important;
+  }
+
+  .annotation {
+    padding-top: 0 !important;
+    line-height: 1.7 !important;
+    max-width: 530px !important;
+    @include respond($mobile) {
+      font-size: 18px !important;
+    }
+  }
+
+  .question {
+    letter-spacing: 1.5px;
+  }
+
+  .buttons {
+    padding-top: 8px !important;
+  }
+}
+
+.family-services {
+  @include respond($mobile) {
+    padding: 132px 0 50px 0 !important;
+  }
+
+  .title span {
+    padding-bottom: 12px !important;
+  }
+
+  .content {
+    max-width: 100% !important;
+  }
+
+  .button-brown {
+    max-width: 145px !important;
+    margin-right: 30px;
+    @include respond(0, 600px) {
+      margin-bottom: 15px;
+    }
+  }
+
+  .button-clear {
+    max-width: 280px !important;
+    width: 100% !important;
+  }
+
+  .flexy {
+    @include respond(0, 600px) {
+      flex-direction: column;
+    }
+    display: flex;
+    margin-top: auto;
+  }
+}
+
+.family-examples {
+  @include respond($mobile) {
+    padding: 165px 0 205px 0 !important
+  }
+}
+
+.family-feedback {
+  min-height: 700px;
+  display: flex;
+  align-items: center;
+
+  > .container {
+    width: 100%;
+  }
+}
+
+.family-blog {
+  @include respond($mobile) {
+    padding-top: 182px !important;
+  }
+  @include respond(0, $mobile) {
+    padding-top: 42px !important;
+    padding-bottom: 32px !important;
+  }
+
+  .swiper-navigation {
+    padding-bottom: 0 !important;
+  }
+
+  .heading-line span {
+    padding-bottom: 22px !important;
+  }
+
+  .blog-text {
+    @include respond($mobile) {
+      padding-top: 43px !important;
+    }
+  }
+}
+
+section.expert {
+
+  .way-bg img {
+    object-fit: cover;
+  }
+
+
+  @include respond($mobile) {
+    padding: 100px 0 135px 0;
+  }
+  @include respond(0, $mobile) {
+    padding: 30px 0 40px 0;
+  }
+  overflow: hidden;
+  position: relative;
+
+  > .container {
+    position: relative;
+  }
+
+  img {
+    display: block;
+    max-width: 100%;
+    box-shadow: 19.092px 19.092px 51px 0 rgba(150, 117, 60, 0.2), 9.192px 9.192px 24px 0 rgba(150, 117, 60, 0.11);
+  }
+
+  .columns {
+    @include respond($mobile) {
+      margin-top: 60px;
+    }
+
+    @include respond(0, $mobile) {
+      margin-top: 30px;
+    }
+
+    .column:last-child {
+      flex: 1;
+      @include respond($mobile) {
+        padding-left: 45px;
+      }
+    }
+
+    .column:first-child {
+      @include respond($mobile) {
+        max-width: 457px;
+        width: 100%;
+      }
+    }
+
+    .about-me {
+      font-size: 18px;
+      line-height: 1.667;
+      text-align: left;
+      font-weight: 500;
+      @include respond($mobile) {
+        padding-top: 64px;
+      }
+      @include respond(0, $mobile) {
+        padding-top: 34px;
+        padding-bottom: 40px;
+      }
+      letter-spacing: 1.9px;
+    }
+
+    svg {
+      fill: $brown;
+    }
+
+    @include respond($mobile) {
+      display: flex;
+    }
+  }
+
+  .text,
+  .text p {
+    @include respond($mobile) {
+      font-size: 21px;
+    }
+    @include respond(0, $mobile) {
+      font-size: 17px;
+    }
+    font-weight: 300;
+    line-height: 1.429;
+  }
+
+  .text {
+    padding-top: 7px;
+    letter-spacing: 2px;
+  }
+
+  .firstname {
+    font-size: 24px;
+    font-family: $lato-font;
+    line-height: 1.25;
+    font-weight: 600;
+    text-align: left;
+  }
+
+  .role {
+    position: relative;
+    font-size: 16px;
+    font-family: $lato-font;
+    font-weight: 300;
+    color: rgb(98, 101, 121);
+    line-height: 1.625;
+    padding-bottom: 10px;
+
+    &:after {
+      position: absolute;
+      content: '';
+      bottom: 0;
+      left: 0;
+      right: -9999px;
+      height: 1px;
+      background: $brown;
+    }
+  }
+}
