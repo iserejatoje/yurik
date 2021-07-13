@@ -1448,6 +1448,14 @@ blockquote {
   text-decoration: none;
 }
 
+.menu-opened {
+  overflow: hidden;
+
+  .menu {
+    display: block;
+  }
+}
+
 .menu {
   position: fixed;
   display: none;
@@ -1457,13 +1465,14 @@ blockquote {
   top: 0;
   bottom: 0;
   background: linear-gradient(350deg, #022635, #022635, #003e62, #003d6a);
+  overflow: auto;
+  padding-top: 66px;
 
   .container {
     height: 100%;
     display: flex;
     align-items: center;
     flex-direction: column;
-    padding-top: 50px;
   }
 
   .menu-content {
@@ -1476,15 +1485,24 @@ blockquote {
     display: flex;
     flex-direction: column;
     align-items: center;
+
+    &:after {
+      content: none !important;
+    }
+
+    a {
+      margin: 5px 0;
+    }
   }
 
-  svg {
+  .menu-content svg {
     fill: $brown;
-    margin-right: 6px;
+    margin-right: 8px;
   }
 
   nav {
-    margin: 20px 0;
+    margin: 40px 0 20px 0;
+    padding-bottom: 20px;
   }
 
   .links {
@@ -1492,9 +1510,17 @@ blockquote {
     margin: 20px 0;
     flex-direction: column;
 
+    a:first-child {
+      margin-bottom: 18px;
+    }
+
     a {
       font-size: 18px;
     }
+  }
+
+  .menu-logo {
+    margin-bottom: 10px;
   }
 
   .menu {
@@ -1505,9 +1531,21 @@ blockquote {
     }
   }
 
+  .bolder {
+    font-weight: bold;
+    font-size: 20px;
+  }
+
   a {
     color: $white;
     text-decoration: none;
+    transition: color $transition-delay ease;
+    display: inline-flex;
+    align-items: center;
+
+    &:hover {
+      color: $brown;
+    }
   }
 
   .menu-close_button {
@@ -1518,8 +1556,8 @@ blockquote {
     position: absolute;
     right: 0;
     top: 0;
-    width: 55px;
-    height: 55px;
+    width: 64px;
+    height: 86px;
     display: flex;
     align-items: center;
     justify-content: center;

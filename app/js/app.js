@@ -260,19 +260,30 @@ for (let i = 0; i < blogFilter.length; i++) {
 const loadMore = document.querySelectorAll('.load-more')
 for (let i = 0; i < loadMore.length; i++) {
     loadMore[i].addEventListener('click', function (event) {
-        document.querySelector('.read').style.display = 'block';
-        event.target.style.display = 'none';
+        document.querySelector('.read').style.display = 'block'
+        event.target.style.display = 'none'
         event.preventDefault()
     })
 }
+const burger = document.querySelector('.burger')
+burger.addEventListener('click', function (event) {
+    document.body.classList.toggle('menu-opened')
+    event.preventDefault()
+})
+
+const closeBurger = document.querySelector('.menu-close_button')
+closeBurger.addEventListener('click', function (event) {
+    document.body.classList.remove('menu-opened')
+    event.preventDefault()
+})
 
 function index(el) {
-    if (!el) return -1;
-    let i = 0;
+    if (!el) return -1
+    let i = 0
     do {
-        i++;
-    } while (el = el.previousElementSibling);
-    return i;
+        i++
+    } while (el = el.previousElementSibling)
+    return i
 }
 
 const exampleFilter = document.querySelectorAll('.filter.example a')
@@ -288,14 +299,14 @@ for (let i = 0; i < exampleFilter.length; i++) {
         const pages = document.querySelectorAll('.pages .page')
 
         let sibling_element = Array.prototype.filter.call(pages[index(event.target) - 1].parentNode.children, function (child) {
-            return child !== pages[index(event.target) - 1];
+            return child !== pages[index(event.target) - 1]
         });
 
         for (let i = 0; i < sibling_element.length; i++) {
-            sibling_element[i].style.display = 'none';
+            sibling_element[i].style.display = 'none'
         }
 
-        pages[index(event.target) - 1].style.display = 'block';
+        pages[index(event.target) - 1].style.display = 'block'
         event.preventDefault()
     })
 }
