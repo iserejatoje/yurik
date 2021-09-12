@@ -3,4 +3,81 @@
 
 <!--#include virtual="/parts/team-slider.html" -->
 
+<div class="content team-popup" style="display: none;">
+
+    <button class="close-popup">
+        <svg width="20" height="20">
+            <use xlink:href="#close"></use>
+        </svg>
+    </button>
+
+    <div class="columns">
+        <div class="column">
+            <img src="" width="267" height="440" alt="">
+        </div>
+        <div class="column">
+            <div class="title"></div>
+            <div class="role"></div>
+            <div class="text"></div>
+            <div class="education"><b>Образование: </b> <span>информация скоро появится</span></div>
+        </div>
+    </div>
+
+    <div class="team-feedback">
+        <div class="grid">
+            <div class="item">
+                <div class="heading-line fs-36-colored">Связаться с этим <span>специалистом</span></div>
+                <div class="annotation">Оставьте заявку, и мы вам поможем!</div>
+            </div>
+            <div class="item">
+
+                <form action="" class="form" method="post" enctype="application/x-www-form-urlencoded"
+                      autocomplete="off">
+                    <input type="hidden" name="action" value="team-feedback">
+                    <input type="hidden" name="employee" value="">
+
+                    <div class="form-input first">
+                        <input type="text" name="firstname" class="dark" required>
+                        <span class="input-label dark">Введите имя</span>
+                    </div>
+
+                    <div class="form-input">
+                        <input type="tel" name="phone" class="dark" required minlength="18">
+                        <span class="input-label dark">Номер телефона</span>
+                    </div>
+
+                    <div class="label-policy dark">
+                        <label>
+                            <span class="checkbox">
+                                <input type="checkbox" name="agree" checked required>
+                                <span class="checkmark">
+                                    <span class="checkmark-stem"></span>
+                                    <span class="checkmark-kick"></span>
+                                </span>
+                            </span>
+                            <span class="checkbox-text">Я согласен с <a href="#">условиями</a> обработки персональных данных</span>
+                        </label>
+                    </div>
+
+                    <button type="submit" class="button button-brown">Связаться</button>
+
+                </form>
+
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="content success"  style="display: none;">
+    <button class="close-popup">
+        <svg width="20" height="20">
+            <use xlink:href="#close"></use>
+        </svg>
+    </button>
+    <div class="wrap">
+        <h2>Спасибо!</h2>
+        <p>Ваша заявка успешно принята. Мы свяжемся с Вами в ближайшее время.</p>
+    </div>
+</div>
+
 <!--#include virtual="/parts/footer.html" -->

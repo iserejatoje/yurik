@@ -34,15 +34,37 @@ section.blog {
     position: relative;
     padding-bottom: 10px;
 
+    .swiper-wrapper {
+      min-height: 400px;
+    }
+
+    .swiper-pagination-bullets {
+      @include respond(0, 900px) {
+        padding-right: 0 !important;
+      }
+    }
+
+    .blog-slider {
+      @include respond(0, 900px) {
+        overflow: visible !important;
+      }
+    }
+
     &:after {
-      right: 33px;
-      left: -1000px;
+      @include respond(900px) {
+        border-radius: 0 60px 60px 0;
+        right: 33px;
+        left: -1000px;
+      }
+      @include respond(0, 900px) {
+        right: -15px;
+        left: -15px;
+      }
       height: 170px;
       content: '';
       bottom: 0;
       position: absolute;
       background: transparentize($brown, .9);
-      border-radius: 0 60px 60px 0;
       pointer-events: none;
     }
   }
@@ -83,15 +105,24 @@ section.blog {
   .swiper-slide {
     background: #fff;
     height: calc((100% - 30px) / 2);
-    min-height: 400px;
+    min-height: 430px;
     border: 1px solid $brown;
     overflow: hidden;
+    display: flex;
+    flex-direction: column;
     transition: box-shadow $transition-delay ease;
     text-decoration: none;
     color: $dark;
 
     .content {
       padding: 30px;
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+    }
+
+    .actions {
+      margin-top: auto;
     }
 
     .info {
@@ -120,7 +151,7 @@ section.blog {
     }
 
     img {
-      max-width: 317px;
+      max-width: 317px !important;
       display: block;
       clip-path: url(#svgPath);
       position: relative;

@@ -1,8 +1,11 @@
-@import "variables";
 @import "mixins";
+@import "variables";
 
 .main-in_service {
   h1 {
+    p {
+      margin: 0;
+    }
     @include respond($mobile) {
       font-size: 42px;
     }
@@ -285,7 +288,7 @@ section.need {
     }
 
     img {
-      max-width: 400px;
+      max-width: 400px !important;
       display: block;
       clip-path: url(#svgPathLarge);
       position: relative;
@@ -330,6 +333,7 @@ section.need {
       padding-bottom: 24px;
       display: inline-block;
       margin-bottom: 20px;
+      min-height: 92px;
     }
 
     span:after {

@@ -4,7 +4,8 @@
   "description": "Юридическая инициатива",
   "scripts": {
     "start": "gulp",
-    "build": "gulp build"
+    "build": "gulp build",
+    "scp": "scp -r .\\app\\css resstar17_legal@resstar17.beget.tech:wp-content/themes/legalinict/test/"
   },
   "repository": {
     "type": "git",
@@ -20,12 +21,15 @@
   "devDependencies": {
     "@babel/core": "^7.14.6",
     "@babel/preset-env": "^7.14.5",
+    "@types/fancybox": "^3.5.3",
+    "@types/jquery": "^3.5.6",
     "babel-loader": "^8.2.2",
     "babel-plugin-module-resolver": "^4.1.0",
     "babel-plugin-root-import": "^6.6.0",
     "browser-sync": "^2.26.14",
     "browsersync-ssi": "^0.2.4",
     "del": "^6.0.0",
+    "fancybox": "^3.0.1",
     "gulp": "^4.0.2",
     "gulp-autoprefixer": "^8.0.0",
     "gulp-clean-css": "^4.3.0",
@@ -40,7 +44,10 @@
     "webpack-stream": "^6.1.2"
   },
   "dependencies": {
+    "@fancyapps/fancybox": "^3.5.7",
+    "@fancyapps/ui": "^4.0.0-alpha.4",
     "imask": "^6.0.7",
+    "jquery": "^3.6.0",
     "swiper": "^6.7.5"
   }
 }

@@ -1,91 +1,94 @@
 @import "mixins";
 @import "variables";
 
-.practice {
+.practice-header {
 
-  .practice-header {
-    @include respond($mobile) {
-      min-height: 545px;
-    }
-    @include respond(650px) {
-      padding: 82px 0;
-    }
-    @include respond(0, 650px) {
-      padding: 42px 0;
-    }
-    position: relative;
-
-    .container {
-      position: relative;
-    }
-
-    .title {
-      @extend .small-text;
-      max-width: 385px;
-      @include respond($mobile) {
-        margin: 50px 0 40px 0;
-      }
-      @include respond(0, $mobile) {
-        margin: 24px 0;
-      }
-    }
-
-    .button {
-      letter-spacing: 1px;
-    }
-
+  .z-1 {
     picture {
-      position: absolute;
-      left: 0;
-      right: 0;
-      top: 0;
-      bottom: 0;
+      position: relative !important;
+    }
+  }
 
-      img {
-        max-width: 100%;
-        display: block;
-        object-fit: cover;
-        height: 100%;
-      }
+  @include respond($mobile) {
+    min-height: 545px;
+  }
+  @include respond(650px) {
+    padding: 82px 0;
+  }
+  @include respond(0, 650px) {
+    padding: 42px 0;
+  }
+  position: relative;
+
+  .container {
+    position: relative;
+  }
+
+  .title {
+    @extend .small-text;
+    max-width: 385px;
+    @include respond($mobile) {
+      margin: 50px 0 40px 0;
+    }
+    @include respond(0, $mobile) {
+      margin: 24px 0;
+    }
+  }
+
+  .button {
+    letter-spacing: 1px;
+  }
+
+  picture {
+    position: absolute;
+    left: 0;
+    right: 0;
+    top: 0;
+    bottom: 0;
+
+    img:not(.path-text) {
+      max-width: 100%;
+      display: block;
+      object-fit: cover;
+      height: 100%;
+    }
+  }
+
+  .heading-line {
+    @include respond($mobile) {
+      font-size: 45px;
+      line-height: 1.333;
+    }
+    @include respond(0, $mobile) {
+      font-size: 30px;
+      line-height: 1.23;
     }
 
-    .heading-line {
-      @include respond($mobile) {
-        font-size: 45px;
-        line-height: 1.333;
-      }
-      @include respond(0, $mobile) {
-        font-size: 30px;
-        line-height: 1.23;
-      }
-
-      span {
-        color: $brown;
-        padding-bottom: 6px;
-      }
+    span {
+      color: $brown;
+      padding-bottom: 6px;
     }
+  }
 
-    .path {
-      stroke: $brown;
-      position: absolute;
-      bottom: -57px;
-      transform: translateX(-12px);
-      pointer-events: none;
-      user-select: none;
-      @include respond(0, 650px) {
-        display: none;
-      }
+  .path {
+    stroke: $brown;
+    position: absolute;
+    bottom: -57px;
+    transform: translateX(-12px);
+    pointer-events: none;
+    user-select: none;
+    @include respond(0, 650px) {
+      display: none;
     }
+  }
 
-    .path-text {
-      transform: translate(80px, 7px);
-      pointer-events: none;
-      user-select: none;
-      @include respond(0, 650px) {
-        display: none;
-      }
+  .path-text {
+    transform: translate(80px, 7px);
+    pointer-events: none;
+    user-select: none;
+    @include respond(0, 650px) {
+      display: none;
     }
-
   }
 }
 
@@ -445,7 +448,7 @@
     }
   }
 
-  picture {
+  > picture {
     position: absolute;
     left: 0;
     right: 0;
@@ -529,7 +532,7 @@
 
   &.why-in_service {
     .icon {
-      z-index: 2;
+      //z-index: 2;
     }
 
     .swiper-action {

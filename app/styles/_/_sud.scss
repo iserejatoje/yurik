@@ -3,7 +3,7 @@
 
 .fs-30 {
   @include respond($mobile) {
-    font-size: 30px !important;
+    font-size: 29px !important;
     line-height: 1.333 !important;
   }
 }
@@ -78,7 +78,7 @@
   .more-link_pointer {
     opacity: 1 !important;
     @include respond($mobile) {
-      margin: 45px 0;
+      margin: 25px 0;
     }
     @include respond(0, $mobile) {
       margin: 25px 0;
@@ -299,12 +299,8 @@
     bottom: 0;
     pointer-events: none;
     object-fit: cover;
-
-    img {
-      height: 100%;
-      width: 100%;
-      object-fit: cover;
-    }
+    height: 100%;
+    width: 100%;
   }
 
   .heading-line {
@@ -447,4 +443,10 @@
 .read {
   display: none;
   margin-bottom: 35px;
+}
+
+.fix-height-blog {
+  .swiper-slide {
+    min-height: 538px !important;
+  }
 }

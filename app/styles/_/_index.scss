@@ -1,23 +1,18 @@
 @import "variables";
 @import "mixins";
 
-.frontpage-picture {
-  pointer-events: none;
+img.frontpage-picture {
+  display: block;
+  max-width: initial !important;
+  position: absolute;
+  object-fit: cover;
+  top: 0;
+  bottom: 0;
+  width: 100%;
+  height: 100%;
 
   @include respond(0, $mobile) {
-    display: none;
-  }
-
-  img {
-    display: block;
-    max-width: 100%;
-    height: 100%;
-    width: 100%;
-    position: absolute;
-    object-fit: cover;
-    top: 0;
-    min-height: 800px;
-    max-height: 800px;
+    display: none !important;
   }
 }
 
@@ -30,7 +25,7 @@
     pointer-events: none;
 
     @include respond(0, 1366px) {
-      display: none;
+      display: none !important;
     }
   }
 }
@@ -51,7 +46,7 @@
     font-weight: bold;
     line-height: 1.2;
     color: $white;
-    max-width: 500px;
+    max-width: 450px;
 
     span {
       color: $brown;
@@ -112,17 +107,21 @@
 section.main {
   display: flex;
   align-items: center;
+  position: relative;
 
   @include respond($mobile) {
     min-height: 800px;
     padding-top: 105px;
   }
   @include respond(0, $mobile) {
-    padding-top: 120px;
+    padding-top: 128px;
     padding-bottom: 40px;
   }
   @include respond(0, $mobile) {
-    background: linear-gradient(350deg, #022635, #022635, #003e62, #003d6a);
+    background: linear-gradient(350deg,#172a2b,#172a2b,#124f45,#172a2b);
+  }
+  &.mobile-bg {
+    background: linear-gradient(350deg,#172a2b,#172a2b,#124f45,#172a2b) !important;
   }
 }
 
@@ -320,10 +319,8 @@ section.clients {
     right: 0;
     top: 0;
     bottom: 0;
-
-    img {
-      height: 100%;
-    }
+    height: 100%;
+    object-fit: cover;
   }
 
   .columns {
@@ -340,6 +337,8 @@ section.clients {
     .column:last-child {
       img {
         opacity: .2;
+        display: block;
+        max-width: 100%;
       }
     }
   }
@@ -386,10 +385,7 @@ section.clients {
   bottom: 0;
   pointer-events: none;
   object-fit: cover;
-
-  img {
-    height: 100%;
-  }
+  height: 100%;
 }
 
 section.way {
@@ -486,7 +482,7 @@ section.way {
     }
 
     img {
-      max-width: 400px;
+      max-width: 400px !important;
       display: block;
       clip-path: url(#svgPath);
       position: relative;
@@ -514,6 +510,7 @@ section.way {
 
     .title {
       padding-left: 30px;
+      padding-right: 15px;
       font-size: 24px;
       text-decoration: none;
       color: $dark;
@@ -865,14 +862,14 @@ section.news {
     }
 
     img {
-      max-width: 400px;
+      max-width: 400px !important;
       display: block;
       clip-path: url(#svgPathMedium);
       position: relative;
       z-index: 1;
       transform: translate(-1px, -1px);
       pointer-events: none;
-      min-height: 140px;
+      min-height: 170px;
       object-fit: cover;
       width: 100%;
     }

@@ -212,6 +212,16 @@ section.team {
       }
     }
 
+    .annotation {
+      margin: 28px 0;
+      line-height: 1.563;
+      font-size: 16px;
+      font-weight: 300;
+      @include respond(0, 600px) {
+        display: none;
+      }
+    }
+
     .text {
       @include respond(0, 600px) {
         display: none;
@@ -232,7 +242,7 @@ section.team {
       font-family: $lato-font;
       color: $dark;
       text-decoration: none;
-      max-width: 200px;
+      max-width: 220px;
       font-weight: bold;
       @include respond($mobile) {
         font-size: 21px;

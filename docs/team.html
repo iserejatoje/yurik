@@ -39,6 +39,10 @@
                         <span>Ваш город:</span>
                         <a href="#" rel="noreferrer" class="select">
                             <span>Новосибирск</span>
+                            <div class="cities-list">
+                                <span data-city="kemerovo">Кемерово</span>
+                                <span data-city="novosibirsk">Новосибирск</span>
+                            </div>
                             <svg width="10" height="5"><use xlink:href="sprites/app.svg#updown"></use></svg>
                         </a>
                     </div>
@@ -98,7 +102,8 @@
 
                     <div class="team-slider swiper-container">
                         <div class="swiper-wrapper">
-                            <a href="" class="swiper-slide">
+
+                            <a class="swiper-slide" href="#" data-src=".team-popup" data-popup>
                                 <div class="content">
                                     <div class="title">
                                         Баханов Дмитрий Дмитриевич
@@ -107,11 +112,17 @@
                                         Юрист, руководитель компании
                                     </div>
                                     <div class="text">
-                                        Lorem ipsum dolor
-                                        sit amet, consectetur
-                                        adipisicing elit, sed do
-                                        eiusmod tempor
-                                        incididunt ut labore.
+                                        Мы хорошо понимаем с какими проблемами сталкиваются предприниматели, потому что работаем над этими
+                                        вопросами каждый день...
+                                    </div>
+                                    <div class="education">информация скоро появится</div>
+                                    <div class="full-text">
+                                        Мы хорошо понимаем с какими проблемами сталкиваются предприниматели, потому что работаем над этими
+                                        вопросами каждый день. К нам в компанию приходят собственники бизнесов, которые встречаются с
+                                        разными трудностями и им нужен профессионал, способный помочь, как в текущей деятельности, так и
+                                        после проведенного юридического аудита, дать решение для узкопрофильной проблемы. В нашей компании
+                                        есть такие специалисты, а главное мы сами имеем успешный опыт в предпринимательской деятельности,
+                                        поэтому предлагаемые решения основаны не только на нормах права, а на реальных ситуациях.
                                     </div>
                                     <div class="more-link_pointer">Подробнее <svg width="23" height="10"><use xlink:href="#more-pointer"></use></svg></div>
                                 </div>
@@ -123,56 +134,7 @@
                                     </picture>
                                 </div>
                             </a>
-                            <a href="" class="swiper-slide">
-                                <div class="content">
-                                    <div class="title">
-                                        Баханов Дмитрий Дмитриевич
-                                    </div>
-                                    <div class="role">
-                                        Юрист, руководитель компании
-                                    </div>
-                                    <div class="text">
-                                        Lorem ipsum dolor
-                                        sit amet, consectetur
-                                        adipisicing elit, sed do
-                                        eiusmod tempor
-                                        incididunt ut labore.
-                                    </div>
-                                    <div class="more-link_pointer">Подробнее <svg width="23" height="10"><use xlink:href="#more-pointer"></use></svg></div>
-                                </div>
-                                <div class="image">
-                                    <picture>
-                                        <source type="image/webp" srcset="images/dude.webp">
-                                        <source type="image/png" srcset="images/dude.png">
-                                        <img class="swiper-lazy" src="images/dude.png" alt="Баханов Дмитрий Дмитриевич">
-                                    </picture>
-                                </div>
-                            </a>
-                            <a href="" class="swiper-slide">
-                                <div class="content">
-                                    <div class="title">
-                                        Баханов Дмитрий Дмитриевич
-                                    </div>
-                                    <div class="role">
-                                        Юрист, руководитель компании
-                                    </div>
-                                    <div class="text">
-                                        Lorem ipsum dolor
-                                        sit amet, consectetur
-                                        adipisicing elit, sed do
-                                        eiusmod tempor
-                                        incididunt ut labore.
-                                    </div>
-                                    <div class="more-link_pointer">Подробнее <svg width="23" height="10"><use xlink:href="#more-pointer"></use></svg></div>
-                                </div>
-                                <div class="image">
-                                    <picture>
-                                        <source type="image/webp" srcset="images/dude.webp">
-                                        <source type="image/png" srcset="images/dude.png">
-                                        <img class="swiper-lazy" src="images/dude.png" alt="Баханов Дмитрий Дмитриевич">
-                                    </picture>
-                                </div>
-                            </a>
+
                         </div>
                     </div>
                 </div>
@@ -182,6 +144,83 @@
     </div>
 </section>
 
+
+<div class="content team-popup" style="display: none;">
+
+    <button class="close-popup">
+        <svg width="20" height="20">
+            <use xlink:href="#close"></use>
+        </svg>
+    </button>
+
+    <div class="columns">
+        <div class="column">
+            <img src="" width="267" height="440" alt="">
+        </div>
+        <div class="column">
+            <div class="title"></div>
+            <div class="role"></div>
+            <div class="text"></div>
+            <div class="education"><b>Образование: </b> <span>информация скоро появится</span></div>
+        </div>
+    </div>
+
+    <div class="team-feedback">
+        <div class="grid">
+            <div class="item">
+                <div class="heading-line fs-36-colored">Связаться с этим <span>специалистом</span></div>
+                <div class="annotation">Оставьте заявку, и мы вам поможем!</div>
+            </div>
+            <div class="item">
+
+                <form action="" class="form" method="post" enctype="application/x-www-form-urlencoded"
+                      autocomplete="off">
+                    <input type="hidden" name="action" value="team-feedback">
+                    <input type="hidden" name="employee" value="">
+
+                    <div class="form-input first">
+                        <input type="text" name="firstname" class="dark" required>
+                        <span class="input-label dark">Введите имя</span>
+                    </div>
+
+                    <div class="form-input">
+                        <input type="tel" name="phone" class="dark" required minlength="18">
+                        <span class="input-label dark">Номер телефона</span>
+                    </div>
+
+                    <div class="label-policy dark">
+                        <label>
+                            <span class="checkbox">
+                                <input type="checkbox" name="agree" checked required>
+                                <span class="checkmark">
+                                    <span class="checkmark-stem"></span>
+                                    <span class="checkmark-kick"></span>
+                                </span>
+                            </span>
+                            <span class="checkbox-text">Я согласен с <a href="#">условиями</a> обработки персональных данных</span>
+                        </label>
+                    </div>
+
+                    <button type="submit" class="button button-brown">Связаться</button>
+
+                </form>
+
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="content success"  style="display: none;">
+    <button class="close-popup">
+        <svg width="20" height="20">
+            <use xlink:href="#close"></use>
+        </svg>
+    </button>
+    <div class="wrap">
+        <h2>Спасибо!</h2>
+        <p>Ваша заявка успешно принята. Мы свяжемся с Вами в ближайшее время.</p>
+    </div>
+</div>
 
 </div>
 <div class="container-footer">

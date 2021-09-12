@@ -1,9 +1,8 @@
-import {initMap} from './map'
 import IMask from 'imask'
-import Swiper from "swiper"
+import Swiper from 'swiper'
 import SwiperCore, {Navigation, Pagination} from 'swiper/core'
-
-SwiperCore.use([Navigation, Pagination])
+import * as $ from 'jquery'
+import {initMap} from './map'
 
 const params = {
     paginationUpdate: function (e, paginationEl) {
@@ -260,7 +259,7 @@ for (let i = 0; i < blogFilter.length; i++) {
 const loadMore = document.querySelectorAll('.load-more')
 for (let i = 0; i < loadMore.length; i++) {
     loadMore[i].addEventListener('click', function (event) {
-        document.querySelector('.read').style.display = 'block'
+        $(this).parents('.page').find('.text-text').html($(this).parents('.page').find('.read').html());
         event.target.style.display = 'none'
         event.preventDefault()
     })
@@ -286,30 +285,16 @@ function index(el) {
     return i
 }
 
-const exampleFilter = document.querySelectorAll('.filter.example a')
-for (let i = 0; i < exampleFilter.length; i++) {
-    exampleFilter[i].addEventListener('click', function (event) {
+$('.filter.example a').on('click', function(event) {
+    $(this).addClass('active').siblings().removeClass('active');
+    $('.pages .page').eq($(this).index()).show().siblings().hide();
+    event.preventDefault()
+});
 
-        Array.prototype.forEach.call(exampleFilter, function (el, i) {
-            el.classList.remove('active')
-        })
-
-        event.target.classList.add('active')
-
-        const pages = document.querySelectorAll('.pages .page')
-
-        let sibling_element = Array.prototype.filter.call(pages[index(event.target) - 1].parentNode.children, function (child) {
-            return child !== pages[index(event.target) - 1]
-        });
-
-        for (let i = 0; i < sibling_element.length; i++) {
-            sibling_element[i].style.display = 'none'
-        }
-
-        pages[index(event.target) - 1].style.display = 'block'
-        event.preventDefault()
-    })
-}
+$('.mini-cert').on('click', function(event) {
+    $(this).parents('.page').find('.full-image a').eq($(this).index()).removeClass('hidden').siblings().addClass('hidden');
+    event.preventDefault()
+});
 
 const serviceFilter = document.querySelectorAll('.filter.service a')
 for (let i = 0; i < serviceFilter.length; i++) {
@@ -325,20 +310,215 @@ for (let i = 0; i < serviceFilter.length; i++) {
     })
 }
 
-const formInputs = document.querySelectorAll('.form-input input')
-for (let i = 0; i < formInputs.length; i++) {
-    formInputs[i].addEventListener('focus', function (event) {
-        event.target.parentNode.classList.add('active')
-        event.preventDefault()
-    })
-    formInputs[i].addEventListener('blur', function (event) {
-        if (event.target.value === '') {
-            event.target.parentNode.classList.remove('active')
+document.addEventListener('click', function (event) {
+    if (event.target && event.target.hasClass('close-popup') || event.target.hasClass('overlay')) {
+        closeAllPopups()
+    }
+})
+
+document.onkeydown = function (evt) {
+    evt = evt || window.event
+    if (evt.keyCode == 27) {
+        if (document.querySelector('.overlay')) {
+            closeAllPopups()
         }
-        event.preventDefault()
-    })
+    }
 }
 
 window.addEventListener('scroll', () => {
     initTrainEvent()
+})
+
+function initTeamPopup(popup, title, text, role, education, photo) {
+    document.body.classList.add('popup-opened')
+    let newDiv = document.createElement('div')
+    newDiv.innerHTML = popup.innerHTML
+
+    newDiv.querySelector('.title').innerHTML = title
+    newDiv.querySelector('[name="person"]').value = $.trim(title)
+    newDiv.querySelector('.text').innerHTML = text
+    newDiv.querySelector('.role').innerHTML = role
+    newDiv.querySelector('.education span').innerHTML = education
+    newDiv.querySelector('img').setAttribute('src', photo)
+    $(newDiv).find('[name="employee"]').val($.trim(title))
+
+    document.body.insertAdjacentHTML("beforeEnd", '<div class="overlay"><div class="content team-popup">' + newDiv.innerHTML + '</div></div>')
+
+    const phoneMask = document.querySelectorAll('[type="tel"]')
+    phoneMask.forEach(element => IMask(element, {
+        mask: '+{7} (000) 000-00-00'
+    }))
+}
+
+function initPopup(popup, title, text) {
+    document.body.classList.add('popup-opened')
+    let newDiv = document.createElement('div')
+    newDiv.innerHTML = popup.innerHTML
+    $(newDiv).find('.popup-content').html('<br/>'+text)
+    $(newDiv).find('.title').html(title)
+    document.body.insertAdjacentHTML("beforeEnd", '<div class="overlay"><div class="content text-popup">' + newDiv.innerHTML + '</div></div>')
+}
+
+function initSuccessPopup() {
+    document.body.classList.add('popup-opened')
+    let newDiv = document.createElement('div')
+    newDiv.innerHTML = document.querySelector('.success-popup').innerHTML
+    document.body.insertAdjacentHTML("beforeEnd", '<div class="overlay"><div class="content success-popup">' + newDiv.innerHTML + '</div></div>')
+}
+
+function initFeedbackPopup(popup, title, subject, subtitle, redirect_uri) {
+    subtitle = subtitle || '';
+    redirect_uri = redirect_uri || '';
+    document.body.classList.add('popup-opened')
+    let newDiv = document.createElement('div')
+    newDiv.innerHTML = popup.innerHTML
+    $(newDiv).find('.popup-title').html('<span>' + title + '</span>')
+    $(newDiv).find('[name="subject"]').val(subject)
+    $(newDiv).find('[name="url"]').val(redirect_uri)
+    if (subtitle == '') {
+        $(newDiv).find('.form-subtitle').html('Оставьте контакты и мы сами Вам перезвоним')
+    } else {
+        $(newDiv).find('.form-subtitle').html(subtitle)
+    }
+    $(newDiv).find('[type="submit"]').html('Отправить')
+    document.body.insertAdjacentHTML("beforeEnd", '<div class="overlay"><div class="content feedback-popup">' + newDiv.innerHTML + '</div></div>')
+    const phoneMask = document.querySelectorAll('[type="tel"]')
+    phoneMask.forEach(element => IMask(element, {
+        mask: '+{7} (000) 000-00-00'
+    }))
+}
+
+function closeAllPopups() {
+    $('body').removeClass('popup-opened')
+    $('.overlay').remove()
+}
+
+function setCookie(name, value, days) {
+    let expires = "";
+    if (days) {
+        let date = new Date();
+        date.setTime(date.getTime() + (days * 24 * 60 * 60 * 1000));
+        expires = "; expires=" + date.toUTCString();
+    }
+    document.cookie = name + "=" + (value || "") + expires + "; path=/";
+}
+
+$(document).ready(function () {
+    $('body').on('submit', 'form', function () {
+        let $this = $(this)
+        $.post("/wp-admin/admin-ajax.php", $this.serialize(), function () {
+            ym(65148547,'reachGoal','REQUEST')
+            if ($this.find('[name="url"]').val() !== '') {
+                window.open($this.find('[name="url"]').val())
+                console.log($this.find('[name="url"]').val())
+            }
+            $this[0].reset()
+            $this.find('.form-input').removeClass('active')
+            closeAllPopups()
+            initSuccessPopup()
+
+        });
+        return false
+    })
+
+    $( ".full-text table" ).wrapAll( "<div class='table-wrap' />");
+
+    $('[data-city]').click(function (e) {
+        let attr = $(e.target).attr('data-city');
+        $('.city-overlay').remove();
+        if (typeof attr !== typeof undefined && attr !== false) {
+            setCookie('ui_city', $(this).attr('data-city'))
+            $('.select > span').html($(e.target).text())
+            $('.cities-list').removeClass('active')
+            window.location.reload()
+        }
+    })
+    $('.select').on('click', function () {
+        $(this).toggleClass('active')
+        return false;
+    })
+
+    $('[data-popup]').on('click', function (event) {
+        let popup_src = this.getAttribute('data-src')
+        let $el
+        if ($(this).hasClass('swiper-slide')) {
+            $el = $(this)
+        } else {
+            $el = $(this).parents('.swiper-slide')
+        }
+        initTeamPopup(
+            document.querySelector(popup_src),
+            $el.find('.title').text(),
+            $el.find('.full-text').text(),
+            $el.find('.role').text(),
+            $el.find('.education').html(),
+            $el.find('img').attr('src')
+        )
+        event.preventDefault()
+    })
+    $(document).click(function(event) {
+        let $target = $(event.target);
+        if (!$target.closest('.select').length && $('.select').is(":visible")) {
+            $('.location .select').removeClass('active');
+        }
+    });
+
+    $('[data-popup-text]').on('click', function (event) {
+        let popup_src = this.getAttribute('data-src')
+        let $this = $(this)
+        initPopup(
+            document.querySelector(popup_src),
+            $this.find('.title').text(),
+            $this.find('.full-text').html(),
+        )
+        event.preventDefault()
+    })
+
+    $('[data-popup-text2]').on('click', function (event) {
+        let popup_src = this.getAttribute('data-src')
+        let $this = $(this)
+        initPopup(
+            document.querySelector(popup_src),
+            $this.parents('.swiper-slide').find('.title').text(),
+            $this.parents('.swiper-slide').find('.full-text').html()
+        )
+        event.preventDefault()
+    })
+
+    $('[data-feedback]').on('click', function (event) {
+        let popup_src = this.getAttribute('data-src')
+        let subtitle = this.getAttribute('data-subtitle')
+        let $this = $(this)
+        let subject = '';
+        let redirect_uri = '';
+
+        if ($this.attr('data-subject') !== '') {
+            subject = $this.attr('data-subject');
+        }
+        if ($this.attr('data-redirect') !== '') {
+            redirect_uri = $this.attr('data-redirect');
+        }
+
+        initFeedbackPopup(
+            document.querySelector(popup_src),
+            $this.attr('data-title'),
+            subject,
+            subtitle,
+            redirect_uri
+        )
+        event.preventDefault()
+    })
+
+    $('body')
+        .on('focus', '.form-input input', function (event) {
+            $(this).parent().addClass('active')
+            event.preventDefault()
+        })
+        .on('blur', '.form-input input', function (event) {
+            if (event.target.value === '') {
+                $(this).parent().removeClass('active')
+            }
+            event.preventDefault()
+        })
+
 })

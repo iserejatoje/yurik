@@ -12,6 +12,10 @@ section.article {
 
   .content {
 
+    a {
+      color: $brown;
+    }
+
     @include respond($mobile) {
       padding-right: 70px;
       padding-top: 53px;
